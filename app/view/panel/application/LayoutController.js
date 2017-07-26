@@ -1,6 +1,6 @@
-Ext.define('MoMo.admin.view.panel.application.LayoutController', {
+Ext.define('SHOGun.admin.view.panel.application.LayoutController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.momo-application-layout',
+    alias: 'controller.shogun-application-layout',
 
     onLayoutSelect: function(combo, record) {
         var me = this,

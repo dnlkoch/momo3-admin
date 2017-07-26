@@ -1,5 +1,5 @@
-Ext.define('MoMo.admin.view.panel.application.LayerController', {
+Ext.define('SHOGun.admin.view.panel.application.LayerController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.momo-application-layer'
+    alias: 'controller.shogun-application-layer'
 
 });

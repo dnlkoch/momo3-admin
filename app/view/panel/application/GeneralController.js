@@ -1,6 +1,6 @@
-Ext.define('MoMo.admin.view.panel.application.GeneralController', {
+Ext.define('SHOGun.admin.view.panel.application.GeneralController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.momo-application-general',
+    alias: 'controller.shogun-application-general',
 
     onPublicCheckboxChange: function(box) {
         var me = this;

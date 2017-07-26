@@ -1,14 +1,14 @@
-Ext.define('MoMo.admin.view.panel.style.Rule', {
+Ext.define('SHOGun.admin.view.panel.style.Rule', {
     extend: 'Ext.panel.Panel',
-    xtype: 'momo-panel-style-rule',
+    xtype: 'shogun-panel-style-rule',
 
     requires: [
-        'MoMo.admin.util.Sld',
-        'MoMo.admin.view.panel.style.RuleController',
-        'MoMo.admin.view.panel.style.RuleModel',
+        'SHOGun.admin.util.Sld',
+        'SHOGun.admin.view.panel.style.RuleController',
+        'SHOGun.admin.view.panel.style.RuleModel',
 
-        'MoMo.admin.view.panel.style.Filter',
-        'MoMo.admin.view.panel.style.Symbolizer'
+        'SHOGun.admin.view.panel.style.Filter',
+        'SHOGun.admin.view.panel.style.Symbolizer'
     ],
 
     controller: 'panel.style.rule',
@@ -77,7 +77,7 @@ Ext.define('MoMo.admin.view.panel.style.Rule', {
                     flex: 1,
                     listeners: {
                         change: function(){
-                            var view = this.up('momo-panel-style-rule');
+                            var view = this.up('shogun-panel-style-rule');
                             view.fireEvent('rulechanged', view.rule);
                         }
                     }
@@ -90,7 +90,7 @@ Ext.define('MoMo.admin.view.panel.style.Rule', {
                     flex: 1,
                     listeners: {
                         change: function(){
-                            var view = this.up('momo-panel-style-rule');
+                            var view = this.up('shogun-panel-style-rule');
                             view.fireEvent('rulechanged', view.rule);
                         }
                     }
@@ -115,14 +115,14 @@ Ext.define('MoMo.admin.view.panel.style.Rule', {
             },
             margin: '10px 0 0 0',
             items: [{
-                xtype: 'momo-panel-style-symbolizer',
+                xtype: 'shogun-panel-style-symbolizer',
                 symbolizer: this.symbolizer,
                 flex: 1,
                 listeners: {
                     symbolizerschanged: 'onSymbolizersChanged'
                 }
             },{
-                xtype: 'momo-panel-style-filter',
+                xtype: 'shogun-panel-style-filter',
                 filter: this.filter,
                 flex: 1,
                 margin: '0 10px 0 0',

@@ -1,10 +1,10 @@
-Ext.define('MoMo.admin.view.grid.GroupPermissionGridController', {
+Ext.define('SHOGun.admin.view.grid.GroupPermissionGridController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.momo-grouppermissiongrid',
+    alias: 'controller.shogun-grouppermissiongrid',
     requires: [
-        'MoMo.admin.store.Groups',
-        'MoMo.admin.store.Users',
-        'MoMo.admin.store.Roles'
+        'SHOGun.admin.store.Groups',
+        'SHOGun.admin.store.Users',
+        'SHOGun.admin.store.Roles'
     ],
 
 
@@ -59,7 +59,7 @@ Ext.define('MoMo.admin.view.grid.GroupPermissionGridController', {
     getAllUserGroupsAndDetails: function(successCallBack) {
         Ext.Ajax.request({
             url: BasiGX.util.Url.getWebProjectBaseUrl() +
-                'rest/momousergroups',
+                'rest/projectusergroups',
             method: "GET",
             defaultHeaders: BasiGX.util.CSRF.getHeader(),
             scope: this,
@@ -69,10 +69,10 @@ Ext.define('MoMo.admin.view.grid.GroupPermissionGridController', {
                         var userGroups = Ext.decode(response.responseText);
                         successCallBack.call(this, userGroups);
                     } catch (e) {
-                        Ext.log.warn('Error on getting momousergroups');
+                        Ext.log.warn('Error on getting projectusergroups');
                     }
                 } else {
-                    Ext.log.warn('Error on getting momousergroups');
+                    Ext.log.warn('Error on getting projectusergroups');
                 }
             }
         });

@@ -4,13 +4,13 @@
  * This util is a temporary util class until the BasiGX.util.ConfigParser2 is
  * implemented.
  *
- * It is basically a copy of the MoMo.client.view.component.MapController.
+ * It is basically a copy of the SHOGun.client.view.component.MapController.
  *
  * As we just need it for the layerpreview in the admin for know i removed some
  * functions.
  *
  */
-Ext.define('MoMo.admin.util.LayerParser', {
+Ext.define('SHOGun.admin.util.LayerParser', {
 
     statics: {
 

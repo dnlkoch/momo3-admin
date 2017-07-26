@@ -1,10 +1,10 @@
-Ext.define('MoMo.admin.view.panel.layer.Permissions', {
+Ext.define('SHOGun.admin.view.panel.layer.Permissions', {
     extend: 'Ext.panel.Panel',
 
-    xtype: 'momo-layer-permission',
+    xtype: 'shogun-layer-permission',
 
     requires: [
-        'MoMo.admin.view.grid.EntityPermissions'
+        'SHOGun.admin.view.grid.EntityPermissions'
     ],
 
     routeId: 'permissions',
@@ -29,15 +29,15 @@ Ext.define('MoMo.admin.view.panel.layer.Permissions', {
             title: '{i18n.permissions.layerpermissionstitle}'
         },
         items: [{
-            xtype: 'momo-entitypermissions',
+            xtype: 'shogun-entitypermissions',
             flex: 1,
-            entity: 'MomoLayer',
-            targetEntity: 'MomoUser'
+            entity: 'ProjectLayer',
+            targetEntity: 'ProjectUser'
         }, {
-            xtype: 'momo-entitypermissions',
+            xtype: 'shogun-entitypermissions',
             flex: 1,
-            entity: 'MomoLayer',
-            targetEntity: 'MomoUserGroup'
+            entity: 'ProjectLayer',
+            targetEntity: 'ProjectUserGroup'
         }]
     }]
 

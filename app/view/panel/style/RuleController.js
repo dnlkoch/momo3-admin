@@ -1,11 +1,11 @@
-Ext.define('MoMo.admin.view.panel.style.RuleController', {
+Ext.define('SHOGun.admin.view.panel.style.RuleController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.panel.style.rule',
 
     removeRule: function(){
         var view = this.getView();
         var viewModel = this.getViewModel();
-        var rulesPanel = view.up('momo-panel-style-rules');
+        var rulesPanel = view.up('shogun-panel-style-rules');
         var rules = rulesPanel.rules;
         var rule = view.getRule();
 

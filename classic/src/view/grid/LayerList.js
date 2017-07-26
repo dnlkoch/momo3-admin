@@ -1,19 +1,19 @@
-Ext.define('MoMo.admin.view.grid.LayerList',{
+Ext.define('SHOGun.admin.view.grid.LayerList',{
     extend: 'Ext.grid.Panel',
 
-    xtype: 'momo-layerlist',
+    xtype: 'shogun-layerlist',
 
     requires: [
-        'MoMo.admin.view.grid.LayerListController',
-        'MoMo.admin.view.grid.LayerListModel',
+        'SHOGun.admin.view.grid.LayerListController',
+        'SHOGun.admin.view.grid.LayerListModel',
 
-        'MoMo.admin.store.Layers'
+        'SHOGun.admin.store.Layers'
     ],
 
-    controller: 'momo-layerlist',
+    controller: 'shogun-layerlist',
 
     viewModel: {
-        type: 'momo-layerlist'
+        type: 'shogun-layerlist'
     },
 
     store: {
@@ -24,7 +24,7 @@ Ext.define('MoMo.admin.view.grid.LayerList',{
         }],
         listeners: {
             load: function(store){
-                var layerList = Ext.ComponentQuery.query('momo-layerlist')[0];
+                var layerList = Ext.ComponentQuery.query('shogun-layerlist')[0];
                 var tableView = layerList.getView();
                 store.each(function(rec) {
                     if (rec.get('readPermissionGrantedFromAnyApplication')) {
@@ -129,7 +129,7 @@ Ext.define('MoMo.admin.view.grid.LayerList',{
             text: '{layerlistCreateLayer}'
         },
         scale: 'large',
-        ui: 'momo',
+        ui: 'shogun',
         iconCls: 'fa fa-plus fa-2x',
         handler: 'onCreateClick'
     }, {
@@ -139,7 +139,7 @@ Ext.define('MoMo.admin.view.grid.LayerList',{
             text: '{layerlistDeleteLayer}'
         },
         scale: 'large',
-        ui: 'momo',
+        ui: 'shogun',
         iconCls: 'fa fa-minus fa-2x',
         handler: 'onDeleteClick'
     }, '->', {
@@ -180,7 +180,7 @@ Ext.define('MoMo.admin.view.grid.LayerList',{
                 map: new ol.Map({
                     controls: [],
                     view: new ol.View({
-                        center: [11545048, 5938851],
+                        center: [1095801, 6726458],
                         zoom: 3
                     })
                 })

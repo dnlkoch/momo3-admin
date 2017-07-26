@@ -1,7 +1,7 @@
-Ext.define("MoMo.admin.view.form.SubmitForm",{
+Ext.define("SHOGun.admin.view.form.SubmitForm",{
     extend: "Ext.form.Panel",
 
-    xtype: 'momo-form-submitform',
+    xtype: 'shogun-form-submitform',
 
     requires: [
         'BasiGX.util.CSRF'

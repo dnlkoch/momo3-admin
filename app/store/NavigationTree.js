@@ -1,4 +1,4 @@
-Ext.define('MoMo.admin.store.NavigationTree', {
+Ext.define('SHOGun.admin.store.NavigationTree', {
     extend: 'Ext.data.TreeStore',
 
     storeId: 'NavigationTree',

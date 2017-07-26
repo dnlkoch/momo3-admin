@@ -1,6 +1,6 @@
-Ext.define('MoMo.admin.view.panel.application.StartViewController', {
+Ext.define('SHOGun.admin.view.panel.application.StartViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.momo-application-start-view',
+    alias: 'controller.shogun-application-start-view',
 
     /**
      *

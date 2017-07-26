@@ -1,8 +1,8 @@
 {
-  "name": "momo-admin",
+  "name": "shogun-admin",
   "type": "code",
   "version": "0.0.1",
-  "description": "Basic Admin-Client for momoadmin",
+  "description": "Basic Admin-Client for SHOGun",
   "license": "GPL-3.0",
   "homepage": "https://github.com/terrestris/momoadmin-admin#readme",
   "author": "terrestris GmbH & Co. KG <info@terrestris.de>",

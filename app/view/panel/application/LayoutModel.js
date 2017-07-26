@@ -1,6 +1,6 @@
-Ext.define('MoMo.admin.view.panel.application.LayoutModel', {
+Ext.define('SHOGun.admin.view.panel.application.LayoutModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.momo-application-layout',
+    alias: 'viewmodel.shogun-application-layout',
 
     data: {
         title: 'Layout',

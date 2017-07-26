@@ -1,13 +1,13 @@
-Ext.define('MoMo.admin.view.panel.application.Tools', {
+Ext.define('SHOGun.admin.view.panel.application.Tools', {
     extend: 'Ext.panel.Panel',
 
-    xtype: 'momo-application-tools',
+    xtype: 'shogun-application-tools',
 
     requires: [
-        'MoMo.admin.view.panel.application.ToolsController'
+        'SHOGun.admin.view.panel.application.ToolsController'
     ],
 
-    controller: 'momo-application-tools',
+    controller: 'shogun-application-tools',
 
     routeId: 'tools',
 
@@ -35,7 +35,7 @@ Ext.define('MoMo.admin.view.panel.application.Tools', {
     initComponent: function(){
         this.callParent();
         var me = this;
-        this.store = Ext.create('MoMo.admin.store.Tools', {
+        this.store = Ext.create('SHOGun.admin.store.Tools', {
             autoLoad: true,
             listeners: {
                 scope: me,

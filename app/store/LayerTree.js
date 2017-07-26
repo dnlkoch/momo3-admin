@@ -1,9 +1,9 @@
-Ext.define('MoMo.admin.store.LayerTree', {
+Ext.define('SHOGun.admin.store.LayerTree', {
     extend: 'Ext.data.TreeStore',
 
-    storeId: 'momo-layertree',
+    storeId: 'shogun-layertree',
 
-    model: 'MoMo.admin.model.LayerTreeNode',
+    model: 'SHOGun.admin.model.LayerTreeNode',
 
     autoLoad: false,
 

@@ -1,8 +1,8 @@
-Ext.define('MoMo.admin.store.Groups', {
+Ext.define('SHOGun.admin.store.Groups', {
     extend: 'Ext.data.Store',
 
     alias: 'store.groups',
 
-    model: 'MoMo.admin.model.Group'
+    model: 'SHOGun.admin.model.Group'
 
 });

@@ -1,16 +1,16 @@
-Ext.define('MoMo.admin.view.panel.application.StartView', {
+Ext.define('SHOGun.admin.view.panel.application.StartView', {
     extend: 'Ext.form.Panel',
 
-    xtype: 'momo-application-start-view',
+    xtype: 'shogun-application-start-view',
 
     requires: [
-        'MoMo.admin.view.panel.application.StartViewController',
+        'SHOGun.admin.view.panel.application.StartViewController',
         'Ext.form.field.ComboBox',
 
         'GeoExt.component.Map'
     ],
 
-    controller: 'momo-application-start-view',
+    controller: 'shogun-application-start-view',
 
     routeId: 'start-view',
 

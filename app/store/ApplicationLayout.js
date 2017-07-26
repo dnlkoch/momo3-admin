@@ -1,4 +1,4 @@
-Ext.define('MoMo.admin.store.ApplicationLayout', {
+Ext.define('SHOGun.admin.store.ApplicationLayout', {
     extend: 'Ext.data.Store',
 
     storeId: 'ApplicationLayout',

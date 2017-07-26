@@ -1,6 +1,6 @@
-Ext.define('MoMo.admin.view.panel.GroupPanelModel', {
+Ext.define('SHOGun.admin.view.panel.GroupPanelModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.momo-grouppanel',
+    alias: 'viewmodel.shogun-grouppanel',
 
     data: {
         grouppanelTitle: 'Edit groups and permissions',

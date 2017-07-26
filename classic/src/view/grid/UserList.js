@@ -1,19 +1,19 @@
-Ext.define('MoMo.admin.view.grid.UserList',{
+Ext.define('SHOGun.admin.view.grid.UserList',{
     extend: 'Ext.grid.Panel',
 
-    xtype: 'momo-userlist',
+    xtype: 'shogun-userlist',
 
     requires: [
-        'MoMo.admin.view.grid.UserListController',
-        'MoMo.admin.view.grid.UserListModel',
+        'SHOGun.admin.view.grid.UserListController',
+        'SHOGun.admin.view.grid.UserListModel',
 
-        'MoMo.admin.store.Users'
+        'SHOGun.admin.store.Users'
     ],
 
-    controller: 'momo-userlist',
+    controller: 'shogun-userlist',
 
     viewModel: {
-        type: 'momo-userlist'
+        type: 'shogun-userlist'
     },
 
     store: {
@@ -91,7 +91,7 @@ Ext.define('MoMo.admin.view.grid.UserList',{
                 text: '{deleteUser}'
             },
             scale: 'large',
-            ui: 'momo',
+            ui: 'shogun',
             iconCls: 'fa fa-minus fa-2x',
             handler: 'onDeleteClick'
         }, '->', {

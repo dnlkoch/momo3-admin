@@ -1,6 +1,6 @@
-Ext.define('MoMo.admin.view.grid.GroupListController', {
+Ext.define('SHOGun.admin.view.grid.GroupListController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.momo-grouplist',
+    alias: 'controller.shogun-grouplist',
 
     requires: [
         'BasiGX.util.MsgBox'
@@ -15,7 +15,7 @@ Ext.define('MoMo.admin.view.grid.GroupListController', {
         var store = view.getStore();
         store.on('load', me.disableUnusableGroups, me, {single: true});
         store.load();
-        this.getView().up('momo-grouppanel').fireEvent('groupsreloaded');
+        this.getView().up('shogun-grouppanel').fireEvent('groupsreloaded');
     },
 
     /**
@@ -80,7 +80,7 @@ Ext.define('MoMo.admin.view.grid.GroupListController', {
             return;
         }
         var viewModel = me.getView().getViewModel();
-        var group = Ext.create('MoMo.admin.model.Group', {
+        var group = Ext.create('SHOGun.admin.model.Group', {
             name: groupName
         });
 
@@ -91,7 +91,7 @@ Ext.define('MoMo.admin.view.grid.GroupListController', {
                     // reconfigures visibility of components
                     // due to roles
                     var mainView = Ext.ComponentQuery.query(
-                        'momo-mainviewport')[0];
+                        'shogun-mainviewport')[0];
                     mainView.getController().getUserBySession();
 
                     Ext.toast(viewModel.get('i18n.groupCreatedSuccessText'));
@@ -148,7 +148,7 @@ Ext.define('MoMo.admin.view.grid.GroupListController', {
                     // reconfigures visibility of components
                     // due to roles
                     var mainView = Ext.ComponentQuery.query(
-                        'momo-mainviewport')[0];
+                        'shogun-mainviewport')[0];
                     mainView.getController().getUserBySession();
 
                     Ext.toast(viewModel.get('i18n.groupModifySuccessText'));
@@ -290,7 +290,7 @@ Ext.define('MoMo.admin.view.grid.GroupListController', {
     *
     */
     cleanupUserGroupRole: function(userGroupRole) {
-        // delete the momouser specific properties, as we handle
+        // delete the projectuser specific properties, as we handle
         // shogun2 users in the backend
         if (userGroupRole.user) {
             delete userGroupRole.user.department;
@@ -333,7 +333,7 @@ Ext.define('MoMo.admin.view.grid.GroupListController', {
             role: role.get('name')
         };
 
-        // delete the momouser specific properties, as we handle
+        // delete the projectuser specific properties, as we handle
         // shogun2 users in the backend
         userGroupRole = me.cleanupUserGroupRole(userGroupRole);
 
@@ -341,7 +341,7 @@ Ext.define('MoMo.admin.view.grid.GroupListController', {
 
         Ext.Ajax.request({
             url: BasiGX.util.Url.getWebProjectBaseUrl() +
-                'momousergrouproles/update.action',
+                'projectusergrouproles/update.action',
             method: "POST",
             defaultHeaders: BasiGX.util.CSRF.getHeader(),
             scope: this,
@@ -356,7 +356,7 @@ Ext.define('MoMo.admin.view.grid.GroupListController', {
                                 'i18n.groupAddUserSuccess'
                             ));
                             var permController = Ext.ComponentQuery
-                                .query('momo-grouppermissiongrid')[0]
+                                .query('shogun-grouppermissiongrid')[0]
                                 .getController();
                             permController.loadData();
                             win.close();
@@ -391,12 +391,12 @@ Ext.define('MoMo.admin.view.grid.GroupListController', {
                         // reconfigures visibility of components
                         // due to roles
                         var mainView = Ext.ComponentQuery.query(
-                            'momo-mainviewport')[0];
+                            'shogun-mainviewport')[0];
                         mainView.getController().getUserBySession();
 
                         Ext.toast(viewModel.get(
                             'i18n.groupDeletionSuccessText'));
-                        me.getView().up('momo-grouppanel')
+                        me.getView().up('shogun-grouppanel')
                             .fireEvent('groupsreloaded');
                     } else {
                         Ext.toast(viewModel.get(

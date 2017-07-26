@@ -1,6 +1,6 @@
-Ext.define('MoMo.admin.view.grid.EntityPermissionsController', {
+Ext.define('SHOGun.admin.view.grid.EntityPermissionsController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.momo-entitypermissions',
+    alias: 'controller.shogun-entitypermissions',
     requires: [],
 
     /**
@@ -23,7 +23,7 @@ Ext.define('MoMo.admin.view.grid.EntityPermissionsController', {
             view.setDisabled(false);
         }
 
-        // url example e.g. rest/entitypermission/MomoLayer/44/MomoUser
+        // url example e.g. rest/entitypermission/ProjectLayer/44/ProjectUser
         store.getProxy().url = BasiGX.util.Url.getWebProjectBaseUrl() +
             'rest/entitypermission/' + entity + "/" +
             entityId + "/" + targetEntity;

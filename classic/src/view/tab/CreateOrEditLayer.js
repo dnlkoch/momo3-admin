@@ -1,21 +1,21 @@
-Ext.define('MoMo.admin.view.tab.CreateOrEditLayer', {
+Ext.define('SHOGun.admin.view.tab.CreateOrEditLayer', {
     extend: 'Ext.tab.Panel',
 
-    xtype: 'momo-create-or-edit-layer',
+    xtype: 'shogun-create-or-edit-layer',
 
     requires: [
-        'MoMo.admin.view.tab.CreateOrEditLayerController',
-        'MoMo.admin.view.tab.CreateOrEditLayerModel',
-        'MoMo.admin.view.panel.layer.General',
-        'MoMo.admin.view.panel.layer.Metadata',
-        'MoMo.admin.view.panel.layer.Style',
-        'MoMo.admin.view.panel.layer.Permissions'
+        'SHOGun.admin.view.tab.CreateOrEditLayerController',
+        'SHOGun.admin.view.tab.CreateOrEditLayerModel',
+        'SHOGun.admin.view.panel.layer.General',
+        'SHOGun.admin.view.panel.layer.Metadata',
+        'SHOGun.admin.view.panel.layer.Style',
+        'SHOGun.admin.view.panel.layer.Permissions'
     ],
 
-    controller: 'momo-create-or-edit-layer',
+    controller: 'shogun-create-or-edit-layer',
 
     viewModel: {
-        type: 'momo-create-or-edit-layer'
+        type: 'shogun-create-or-edit-layer'
     },
 
     /**
@@ -43,19 +43,21 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditLayer', {
     }],
 
     items: [{
-        xtype: 'momo-layer-general'
-    }, {
-        xtype: 'momo-layer-metadata',
+        xtype: 'shogun-layer-general'
+    },
+//    {
+//        xtype: 'shogun-layer-metadata',
+//        bind: {
+//            disabled: '{isNewLayer}'
+//        }
+//    },
+    {
+        xtype: 'shogun-layer-style',
         bind: {
             disabled: '{isNewLayer}'
         }
     }, {
-        xtype: 'momo-layer-style',
-        bind: {
-            disabled: '{isNewLayer}'
-        }
-    }, {
-        xtype: 'momo-layer-permission',
+        xtype: 'shogun-layer-permission',
         bind: {
             disabled: '{isNewLayer}'
         }

@@ -1,12 +1,12 @@
-Ext.define('MoMo.admin.view.panel.GroupPanelController', {
+Ext.define('SHOGun.admin.view.panel.GroupPanelController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.momo-grouppanel',
+    alias: 'controller.shogun-grouppanel',
 
     /**
      *
      */
     reloadData: function() {
-        var permissionGrid = this.getView().down('momo-grouppermissiongrid');
+        var permissionGrid = this.getView().down('shogun-grouppermissiongrid');
         permissionGrid.getController().loadData();
     },
 
@@ -17,7 +17,7 @@ Ext.define('MoMo.admin.view.panel.GroupPanelController', {
         var me = this;
         var view = me.getView();
         var viewModel = view.getViewModel();
-        var grid = view.down('momo-grouppermissiongrid');
+        var grid = view.down('shogun-grouppermissiongrid');
         var modifiedRecs = grid.getStore().getModifiedRecords();
         var permissions = [];
 //        // read out the permissions per group
@@ -53,7 +53,7 @@ Ext.define('MoMo.admin.view.panel.GroupPanelController', {
 
         Ext.Ajax.request({
             url: BasiGX.util.Url.getWebProjectBaseUrl() +
-                'momousergrouproles/update.action',
+                'projectusergrouproles/update.action',
             method: "POST",
             jsonData: permissions,
             defaultHeaders: BasiGX.util.CSRF.getHeader(),
@@ -61,7 +61,7 @@ Ext.define('MoMo.admin.view.panel.GroupPanelController', {
             callback: function(self, success, response) {
                 view.setLoading(false);
                 if (success) {
-                    var permissionGrid = view.down('momo-grouppermissiongrid');
+                    var permissionGrid = view.down('shogun-grouppermissiongrid');
                     // reload the grid to reset dirty marks and show the
                     // correct (current) group / role state
                     permissionGrid.getController().loadData();
@@ -72,7 +72,7 @@ Ext.define('MoMo.admin.view.panel.GroupPanelController', {
                             // reconfigures visibility of components
                             // due to roles
                             var mainView = Ext.ComponentQuery.query(
-                                'momo-mainviewport')[0];
+                                'shogun-mainviewport')[0];
                             mainView.getController().getUserBySession();
 
                             Ext.Msg.alert(

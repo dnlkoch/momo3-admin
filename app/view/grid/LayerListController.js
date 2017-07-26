@@ -1,9 +1,9 @@
-Ext.define('MoMo.admin.view.grid.LayerListController', {
+Ext.define('SHOGun.admin.view.grid.LayerListController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.momo-layerlist',
+    alias: 'controller.shogun-layerlist',
 
     requires: [
-        'MoMo.admin.util.LayerParser'
+        'SHOGun.admin.util.LayerParser'
     ],
 
     /**
@@ -89,7 +89,7 @@ Ext.define('MoMo.admin.view.grid.LayerListController', {
             view.setLoading(true);
             Ext.Ajax.request({
                 url: BasiGX.util.Url.getWebProjectBaseUrl() +
-                    'rest/momolayers/' + rec.getId(),
+                    'rest/projectlayers/' + rec.getId(),
                 method: 'DELETE',
                 defaultHeaders: BasiGX.util.CSRF.getHeader(),
                 callback: function(record, operation, success) {
@@ -155,7 +155,7 @@ Ext.define('MoMo.admin.view.grid.LayerListController', {
                     value: layerIdArray.toString()
                 }],
                 action : BasiGX.util.Url.getWebProjectBaseUrl() +
-                    'momolayers/download.action'
+                    'projectlayers/download.action'
             });
             document.body.appendChild(form);
             form.submit();
@@ -179,11 +179,11 @@ Ext.define('MoMo.admin.view.grid.LayerListController', {
                     var title = Ext.String.format(previewTemplate,
                         record.get('name'));
                     var obj = Ext.decode(response.responseText);
-                    var layer = MoMo.admin.util.LayerParser.
+                    var layer = SHOGun.admin.util.LayerParser.
                             createOlLayer(obj);
 
                     var dataExtentUrl = BasiGX.util.Url.getWebProjectBaseUrl() +
-                        'momolayers/getLayerExtent.action?layerId=' +
+                        'projectlayers/getLayerExtent.action?layerId=' +
                         record.get('id');
 
                     previewWindow.setTitle(title);
@@ -206,7 +206,7 @@ Ext.define('MoMo.admin.view.grid.LayerListController', {
      * Request the layers data extent and set it in the map
      */
     setExtentForLayer: function(layer, dataExtentUrl, previewMap) {
-        var defaultBounds = [-17992664, 2837342, -3218916, 6594375];//USA
+        var defaultBounds = [-2445984, 2426417, 5381166, 10253568];
         Ext.Ajax.request({
             url: dataExtentUrl,
             success: function(response) {

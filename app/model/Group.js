@@ -1,12 +1,12 @@
-Ext.define('MoMo.admin.model.Group', {
+Ext.define('SHOGun.admin.model.Group', {
 
-    extend: 'MoMo.admin.model.Base',
-    requires: ['Momo.admin.data.identifier.Null'],
+    extend: 'SHOGun.admin.model.Base',
+    requires: ['SHOGun.admin.data.identifier.Null'],
     clientIdProperty: 'clientId',
     identifier: 'null',
     proxy: {
         type: 'rest',
-        url: BasiGX.util.Url.getWebProjectBaseUrl() + 'rest/momousergroups',
+        url: BasiGX.util.Url.getWebProjectBaseUrl() + 'rest/projectusergroups',
         headers: BasiGX.util.CSRF.getHeader()
     },
 

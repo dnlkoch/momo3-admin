@@ -1,12 +1,12 @@
-Ext.define('MoMo.admin.view.container.MainContainer', {
+Ext.define('SHOGun.admin.view.container.MainContainer', {
     extend: 'Ext.container.Container',
-    xtype: 'momo-maincontainerwrap',
+    xtype: 'shogun-maincontainerwrap',
 
     requires : [
         'Ext.layout.container.HBox'
     ],
 
-    cls: 'momo-main-container',
+    cls: 'shogun-main-container',
 
     layout: {
         type: 'hbox',

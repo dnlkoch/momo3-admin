@@ -1,10 +1,10 @@
-Ext.define('MoMo.admin.view.panel.layer.Style',{
+Ext.define('SHOGun.admin.view.panel.layer.Style',{
     extend: 'Ext.panel.Panel',
 
-    xtype: 'momo-layer-style',
+    xtype: 'shogun-layer-style',
 
     requires: [
-        'MoMo.admin.view.panel.style.Styler'
+        'SHOGun.admin.view.panel.style.Styler'
     ],
 
     routeId: 'style',
@@ -23,11 +23,11 @@ Ext.define('MoMo.admin.view.panel.layer.Style',{
             title: '{style.fieldsetTitle}'
         },
         items: [{
-            xtype: 'momo-panel-style-styler',
+            xtype: 'shogun-panel-style-styler',
             bind: {
                 dspLayerName: 'DSP {layer.name}'
             },
-            layerUrl: '/momo/geoserver.action'
+            layerUrl: '/shogun2-webapp/geoserver.action'
         }]
     }]
 });

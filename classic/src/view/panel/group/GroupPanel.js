@@ -1,21 +1,21 @@
-Ext.define('MoMo.admin.view.panel.GroupPanel',{
+Ext.define('SHOGun.admin.view.panel.GroupPanel',{
     extend: 'Ext.form.Panel',
 
-    xtype: 'momo-grouppanel',
+    xtype: 'shogun-grouppanel',
 
     bodyPadding: 5,
 
     requires: [
-        'MoMo.admin.view.panel.GroupPanelController',
-        'MoMo.admin.view.panel.GroupPanelModel',
-        'MoMo.admin.view.grid.GroupList',
-        'MoMo.admin.view.grid.GroupPermissionGrid'
+        'SHOGun.admin.view.panel.GroupPanelController',
+        'SHOGun.admin.view.panel.GroupPanelModel',
+        'SHOGun.admin.view.grid.GroupList',
+        'SHOGun.admin.view.grid.GroupPermissionGrid'
     ],
 
-    controller: 'momo-grouppanel',
+    controller: 'shogun-grouppanel',
 
     viewModel: {
-        type: 'momo-grouppanel'
+        type: 'shogun-grouppanel'
     },
 
     listeners: {
@@ -40,7 +40,7 @@ Ext.define('MoMo.admin.view.panel.GroupPanel',{
                 width: '100%'
             },
             items: [{
-                xtype: 'momo-grouplist'
+                xtype: 'shogun-grouplist'
             }]
         }, {
             xtype: 'fieldset',
@@ -57,7 +57,7 @@ Ext.define('MoMo.admin.view.panel.GroupPanel',{
                         value: '{i18n.grouppanelPermissionGridDescription}'
                     }
                 }, {
-                    xtype: 'momo-grouppermissiongrid'
+                    xtype: 'shogun-grouppermissiongrid'
                 }]
             }]
         }]
@@ -71,7 +71,7 @@ Ext.define('MoMo.admin.view.panel.GroupPanel',{
             text: '{i18n.grouppanelSaveButtonText}'
         },
         scale: 'large',
-        ui: 'momo',
+        ui: 'shogun',
         iconCls: 'fa fa-save fa-2x',
         handler: 'onSaveClick'
     }]

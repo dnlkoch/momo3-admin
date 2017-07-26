@@ -1,6 +1,6 @@
-Ext.define('MoMo.admin.view.grid.LayerTreeModel', {
+Ext.define('SHOGun.admin.view.grid.LayerTreeModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.momo-layertree',
+    alias: 'viewmodel.shogun-layertree',
 
     data: {
         title: '',

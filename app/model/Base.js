@@ -1,4 +1,4 @@
-Ext.define('MoMo.admin.model.Base', {
+Ext.define('SHOGun.admin.model.Base', {
     extend: 'Ext.data.Model',
 
     requires: [
@@ -15,7 +15,7 @@ Ext.define('MoMo.admin.model.Base', {
     }],
 
     schema: {
-        namespace: 'MoMo.admin.model'
+        namespace: 'SHOGun.admin.model'
     }
 
 });

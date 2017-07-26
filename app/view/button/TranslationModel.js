@@ -18,9 +18,9 @@
  *
  * The view model for the translation tools
  *
- * @class MoMo.client.view.button.TranslationModel
+ * @class SHOGun.client.view.button.TranslationModel
  */
-Ext.define('MoMo.admin.view.button.TranslationModel', {
+Ext.define('SHOGun.admin.view.button.TranslationModel', {
     extend: 'Ext.app.ViewModel',
 
     alias: 'viewmodel.button.translation',

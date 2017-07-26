@@ -1,6 +1,6 @@
-Ext.define('MoMo.admin.view.grid.UserPermissionGridModel', {
+Ext.define('SHOGun.admin.view.grid.UserPermissionGridModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.momo-userpermissiongrid',
+    alias: 'viewmodel.shogun-userpermissiongrid',
 
     data: {
         userPermissionGridPanelGroupColumnName: 'Group',

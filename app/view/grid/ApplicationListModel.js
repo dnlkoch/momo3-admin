@@ -1,6 +1,6 @@
-Ext.define('MoMo.admin.view.grid.ApplicationListModel', {
+Ext.define('SHOGun.admin.view.grid.ApplicationListModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.momo-applicationlist',
+    alias: 'viewmodel.shogun-applicationlist',
 
     data: {
         applicationsTitle: 'All applications',

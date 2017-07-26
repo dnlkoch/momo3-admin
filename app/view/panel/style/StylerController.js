@@ -1,4 +1,4 @@
-Ext.define('MoMo.admin.view.panel.style.StylerController', {
+Ext.define('SHOGun.admin.view.panel.style.StylerController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.panel.style.styler',
 
@@ -6,8 +6,8 @@ Ext.define('MoMo.admin.view.panel.style.StylerController', {
         'BasiGX.util.CSRF',
         'BasiGX.util.Url',
 
-        'MoMo.admin.util.Sld',
-        'MoMo.admin.view.panel.style.Rules'
+        'SHOGun.admin.util.Sld',
+        'SHOGun.admin.view.panel.style.Rules'
     ],
 
     /**
@@ -115,10 +115,10 @@ Ext.define('MoMo.admin.view.panel.style.StylerController', {
             return;
         }
         view.add({
-            xtype: 'momo-panel-style-rules',
+            xtype: 'shogun-panel-style-rules',
             sld: sldString
         });
-        view.geometryType = MoMo.admin.util.Sld
+        view.geometryType = SHOGun.admin.util.Sld
             .guessGeometryTypeFromSldString(sldString);
         view.isConfiguring = false;
     },
@@ -126,15 +126,15 @@ Ext.define('MoMo.admin.view.panel.style.StylerController', {
     applyAndSave: function() {
         var me = this;
         var view = me.getView();
-        var rulesPanel = view.down('momo-panel-style-rules');
+        var rulesPanel = view.down('shogun-panel-style-rules');
         if (!rulesPanel) {
             return;
         }
         var rules = rulesPanel.rules;
         var sldObj = rulesPanel.sldObj;
 
-        MoMo.admin.util.Sld.setRulesOfSldObject(sldObj, rules);
-        rulesPanel.setSld(MoMo.admin.util.Sld.toSldString(sldObj));
+        SHOGun.admin.util.Sld.setRulesOfSldObject(sldObj, rules);
+        rulesPanel.setSld(SHOGun.admin.util.Sld.toSldString(sldObj));
 
         this.persistSld();
     },
@@ -143,10 +143,10 @@ Ext.define('MoMo.admin.view.panel.style.StylerController', {
         var me = this;
         var view = me.getView();
         var viewModel = view.getViewModel();
-        var rulesPanel = view.down('momo-panel-style-rules');
+        var rulesPanel = view.down('shogun-panel-style-rules');
         var sldObj = rulesPanel.sldObj;
         var sldString = rulesPanel.getSld();
-        var sldName = MoMo.admin.util.Sld.getSldNameFromSld(sldObj);
+        var sldName = SHOGun.admin.util.Sld.getSldNameFromSld(sldObj);
         var targetLayer = viewModel.get('layer');
 
         Ext.Ajax.request({

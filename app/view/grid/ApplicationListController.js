@@ -1,6 +1,6 @@
-Ext.define('MoMo.admin.view.grid.ApplicationListController', {
+Ext.define('SHOGun.admin.view.grid.ApplicationListController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.momo-applicationlist',
+    alias: 'controller.shogun-applicationlist',
 
     loadStore: function(){
         this.getView().getStore().load();
@@ -57,7 +57,7 @@ Ext.define('MoMo.admin.view.grid.ApplicationListController', {
                 if (decision === "ok" && appName !== "") {
                     view.setLoading(true);
                     var url = BasiGX.util.Url.getWebProjectBaseUrl() +
-                        'momoapps/copy.action';
+                        'projectapps/copy.action';
                     Ext.Ajax.request({
                         url: url,
                         method: 'POST',
@@ -129,7 +129,7 @@ Ext.define('MoMo.admin.view.grid.ApplicationListController', {
                         record.get('id'));
                 break;
             case 3: // show preview
-                window.open('/momo/client?id=' + record.get('id'));
+                window.open(BasiGX.util.Url.getWebProjectBaseUrl() + 'client?id=' + record.get('id'));
                 break;
             default:
                 return;

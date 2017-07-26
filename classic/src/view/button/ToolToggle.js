@@ -1,7 +1,7 @@
-Ext.define("MoMo.admin.view.button.ToolToggle",{
+Ext.define("SHOGun.admin.view.button.ToolToggle",{
     extend: "Ext.button.Button",
 
-    xtype: "momo-button-tooltoggle",
+    xtype: "shogun-button-tooltoggle",
 
     margin: 10,
     enableToggle: true,
@@ -16,7 +16,7 @@ Ext.define("MoMo.admin.view.button.ToolToggle",{
 
     initComponent: function(){
         if(Ext.isEmpty(this.getToolId())){
-            Ext.raise("No toolId defined for momo-button-tooltoggle.");
+            Ext.raise("No toolId defined for shogun-button-tooltoggle.");
         }
         this.callParent(arguments);
     },

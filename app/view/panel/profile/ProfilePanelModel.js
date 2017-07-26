@@ -1,6 +1,6 @@
-Ext.define('MoMo.admin.view.panel.ProfilePanelModel', {
+Ext.define('SHOGun.admin.view.panel.ProfilePanelModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.momo-profilepanel',
+    alias: 'viewmodel.shogun-profilepanel',
 
     data: {
         profilepanelTitle: 'Edit your profile',

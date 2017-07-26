@@ -1,5 +1,5 @@
-Ext.define('MoMo.admin.model.LayerAppearance', {
-    extend: 'MoMo.admin.model.Base',
+Ext.define('SHOGun.admin.model.LayerAppearance', {
+    extend: 'SHOGun.admin.model.Base',
 
     proxy: {
         type: 'rest',

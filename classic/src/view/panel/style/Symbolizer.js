@@ -1,11 +1,11 @@
-Ext.define('MoMo.admin.view.panel.style.Symbolizer', {
+Ext.define('SHOGun.admin.view.panel.style.Symbolizer', {
     extend: 'Ext.panel.Panel',
-    xtype: 'momo-panel-style-symbolizer',
+    xtype: 'shogun-panel-style-symbolizer',
 
     requires: [
-        'MoMo.admin.util.Sld',
-        'MoMo.admin.view.panel.style.SymbolizerController',
-        'MoMo.admin.view.panel.style.SymbolizerModel'
+        'SHOGun.admin.util.Sld',
+        'SHOGun.admin.view.panel.style.SymbolizerController',
+        'SHOGun.admin.view.panel.style.SymbolizerModel'
     ],
 
     controller: 'panel.style.symbolizer',

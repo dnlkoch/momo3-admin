@@ -1,9 +1,9 @@
-Ext.define('MoMo.admin.view.tab.CreateOrEditLayerController', {
+Ext.define('SHOGun.admin.view.tab.CreateOrEditLayerController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.momo-create-or-edit-layer',
+    alias: 'controller.shogun-create-or-edit-layer',
 
     requires: [
-        'MoMo.shared.MetadataUtil'
+        'SHOGun.shared.MetadataUtil'
     ],
 
     /**
@@ -15,9 +15,9 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditLayerController', {
         var viewModel = me.getViewModel();
         viewModel.set('entityId', null);
 
-        var cleanLayer = Ext.create('MoMo.admin.model.Layer');
+        var cleanLayer = Ext.create('SHOGun.admin.model.Layer');
         var cleanLayerAppearance = Ext.create(
-                'MoMo.admin.model.LayerAppearance');
+                'SHOGun.admin.model.LayerAppearance');
 
         cleanLayer.setAppearance(cleanLayerAppearance);
 
@@ -40,16 +40,16 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditLayerController', {
 
         if (layerId) {
 
-            MoMo.admin.model.Layer.load(layerId, {
+            SHOGun.admin.model.Layer.load(layerId, {
                 scope: this,
                 success: function(record) {
                     viewModel.set('layer', record);
-                    view.down('momo-panel-style-styler')
+                    view.down('shogun-panel-style-styler')
                             .setLayerName(record.getSource().get('layerNames'));
-                    var uuid = record.get('metadataIdentifier');
-                    if(uuid){
-                        me.loadMetadata(uuid);
-                    }
+//                    var uuid = record.get('metadataIdentifier');
+//                    if(uuid){
+//                        me.loadMetadata(uuid);
+//                    }
                     me.loadEntityPermissionStores();
                 },
                 failure: function() {
@@ -57,9 +57,9 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditLayerController', {
                 }
             });
         } else {
-            var cleanLayer = Ext.create('MoMo.admin.model.Layer');
+            var cleanLayer = Ext.create('SHOGun.admin.model.Layer');
             var cleanLayerAppearance = Ext.create(
-                    'MoMo.admin.model.LayerAppearance');
+                    'SHOGun.admin.model.LayerAppearance');
 
             cleanLayer.setAppearance(cleanLayerAppearance);
 
@@ -67,7 +67,7 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditLayerController', {
             viewModel.get('layer').set('id', undefined);
             me.loadEntityPermissionStores();
         }
-        var generalTab = me.getView().down('momo-layer-general');
+        var generalTab = me.getView().down('shogun-layer-general');
         me.getView().setActiveItem(generalTab);
     },
 
@@ -81,13 +81,13 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditLayerController', {
             url: BasiGX.util.Url.getWebProjectBaseUrl() + 'metadata/csw.action',
             method: "POST",
             params: {
-                xml: MoMo.shared.MetadataUtil.getLoadXml(uuid),
+                xml: SHOGun.shared.MetadataUtil.getLoadXml(uuid),
                 layerId: viewModel.get('layer').getId()
             },
             defaultHeaders: BasiGX.util.CSRF.getHeader(),
             success: function(response){
                 var responseObj = Ext.decode(response.responseText);
-                var metadataObj = MoMo.shared.MetadataUtil.parseMetadataXml(
+                var metadataObj = SHOGun.shared.MetadataUtil.parseMetadataXml(
                         responseObj.data);
                 viewModel.set('metadata', metadataObj);
             },
@@ -102,8 +102,8 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditLayerController', {
      */
     loadEntityPermissionStores: function() {
         var permissionTab = this.getView().down(
-            'momo-layer-permission');
-        var grids = permissionTab.query('momo-entitypermissions');
+            'shogun-layer-permission');
+        var grids = permissionTab.query('shogun-entitypermissions');
         Ext.each(grids, function(grid) {
             grid.getController().loadStore();
         });
@@ -114,10 +114,10 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditLayerController', {
         var allFieldsValid = me.validateFields();
         var view = me.getView();
         var viewModel = me.getViewModel();
-        var stylerPanel = view.down('momo-panel-style-styler');
-        var metadataPanel = view.down('momo-layer-metadata');
+        var stylerPanel = view.down('shogun-panel-style-styler');
+//        var metadataPanel = view.down('shogun-layer-metadata');
         var layer = viewModel.get('layer');
-        var metadata = viewModel.get('metadata');
+//        var metadata = viewModel.get('metadata');
         var appearance = layer.getAppearance();
 
         if (allFieldsValid) {
@@ -130,13 +130,13 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditLayerController', {
                 stylerPanelCtrl.applyAndSave();
             }
 
-            if (Ext.isEmpty(layer.get('metadataIdentifier'))){
-                metadataPanel.getController().createMetadataEntry(
-                    layer, metadata);
-            } else {
-                metadataPanel.getController().updateMetadataEntry(
-                    layer, metadata);
-            }
+//            if (Ext.isEmpty(layer.get('metadataIdentifier'))){
+//                metadataPanel.getController().createMetadataEntry(
+//                    layer, metadata);
+//            } else {
+//                metadataPanel.getController().updateMetadataEntry(
+//                    layer, metadata);
+//            }
 
             if (layer && layer.getId()) {
                 layer.save({
@@ -185,7 +185,7 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditLayerController', {
     updatePermissionsAndRedirect: function() {
         var me = this;
         var permissionGrids = me.getView().query(
-            'momo-entitypermissions');
+            'shogun-entitypermissions');
         var awaitedEvents = permissionGrids.length;
         var permissionsupdatedEvents = 0;
         var permissionsunmodifiedEvents = 0;
@@ -254,7 +254,7 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditLayerController', {
                 valid = false;
 
                 // set active tab where validation failed
-                var invalidPanel = field.up('panel[xtype^=momo\-layer\-]');
+                var invalidPanel = field.up('panel[xtype^=shogun\-layer\-]');
                 invalidPanel.up().setActiveTab(invalidPanel);
             }
         });

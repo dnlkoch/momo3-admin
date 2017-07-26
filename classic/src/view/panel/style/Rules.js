@@ -1,12 +1,12 @@
-Ext.define('MoMo.admin.view.panel.style.Rules', {
+Ext.define('SHOGun.admin.view.panel.style.Rules', {
     extend: 'Ext.panel.Panel',
-    xtype: 'momo-panel-style-rules',
+    xtype: 'shogun-panel-style-rules',
 
     requires: [
-        'MoMo.admin.util.Sld',
-        'MoMo.admin.view.panel.style.Rule',
-        'MoMo.admin.view.panel.style.RulesController',
-        'MoMo.admin.view.panel.style.RulesModel'
+        'SHOGun.admin.util.Sld',
+        'SHOGun.admin.view.panel.style.Rule',
+        'SHOGun.admin.view.panel.style.RulesController',
+        'SHOGun.admin.view.panel.style.RulesModel'
     ],
 
     controller: 'panel.style.rules',
@@ -45,12 +45,17 @@ Ext.define('MoMo.admin.view.panel.style.Rules', {
     initComponent: function() {
         var me = this;
         me.callParent();
-        this.sldObj = MoMo.admin.util.Sld.toSldObject(this.getSld());
+        this.sldObj = SHOGun.admin.util.Sld.toSldObject(this.getSld());
+
         if (this.sldObj) {
             // TODO: If the sldObj contains multiple sld:UserStyle elements,
             // only the first one will be returned by rulesFromSldObject()
-            this.rules = MoMo.admin.util.Sld.rulesFromSldObject(this.sldObj);
-            me.initRuleComponents();
+            this.rules = SHOGun.admin.util.Sld.rulesFromSldObject(this.sldObj);
+            if (this.rules) {
+                me.initRuleComponents();
+            } else {
+                me.setDisabled(true);
+            }
         } else {
             me.setDisabled(true);
         }
@@ -62,7 +67,7 @@ Ext.define('MoMo.admin.view.panel.style.Rules', {
         Ext.each(rules, function(rule) {
             rule.id = Ext.id();
             me.add({
-                xtype: 'momo-panel-style-rule',
+                xtype: 'shogun-panel-style-rule',
                 margin: 10,
                 rule: rule,
                 listeners: {

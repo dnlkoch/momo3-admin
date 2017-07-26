@@ -1,5 +1,5 @@
-Ext.define('MoMo.admin.model.EntityPermissions', {
-    extend: 'MoMo.admin.model.Base',
+Ext.define('SHOGun.admin.model.EntityPermissions', {
+    extend: 'SHOGun.admin.model.Base',
 
 
     idProperty: 'extId',

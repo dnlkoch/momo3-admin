@@ -1,4 +1,4 @@
-Ext.define('MoMo.admin.view.panel.style.RulesModel', {
+Ext.define('SHOGun.admin.view.panel.style.RulesModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.panel.style.rules',
 

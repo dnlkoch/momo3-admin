@@ -1,4 +1,4 @@
-Ext.define('MoMo.admin.util.Sld', {
+Ext.define('SHOGun.admin.util.Sld', {
     statics: {
         jsonixContext: null,
         marshaller: null,
@@ -20,7 +20,7 @@ Ext.define('MoMo.admin.util.Sld', {
          *
          */
         setStaticJsonixReferences: function() {
-            var staticMe = MoMo.admin.util.Sld;
+            var staticMe = SHOGun.admin.util.Sld;
             var foundCnt = 0;
             Ext.each(staticMe.neededGlobals, function(needed) {
                 if (needed in window) {
@@ -71,7 +71,7 @@ Ext.define('MoMo.admin.util.Sld', {
          */
         toSldObject: function(sldStr) {
             try {
-                return MoMo.admin.util.Sld.unmarshaller.unmarshalString(sldStr);
+                return SHOGun.admin.util.Sld.unmarshaller.unmarshalString(sldStr);
             } catch(e) {
                 return null;
             }
@@ -86,7 +86,7 @@ Ext.define('MoMo.admin.util.Sld', {
                 delete sldObject.value.namedLayerOrUserLayer[0]
                         .namedStyleOrUserStyle[0].isDefault;
             }
-            return MoMo.admin.util.Sld.marshaller.marshalString(sldObject);
+            return SHOGun.admin.util.Sld.marshaller.marshalString(sldObject);
         },
 
         guessGeometryTypeFromSldString: function(sldString){
@@ -105,11 +105,26 @@ Ext.define('MoMo.admin.util.Sld', {
          * TODO the assumption below should be validated
          */
         rulesFromSldObject: function(sldObject){
-            return sldObject.value.
-                namedLayerOrUserLayer[0].
-                namedStyleOrUserStyle[0].
-                featureTypeStyle[0].
-                rule;
+            if (sldObject.value && sldObject.value.namedLayerOrUserLayer &&
+                    sldObject.value.namedLayerOrUserLayer.length > 0 &&
+                    sldObject.value.namedLayerOrUserLayer[0]
+                        .namedStyleOrUserStyle &&
+                    sldObject.value.namedLayerOrUserLayer[0]
+                        .namedStyleOrUserStyle.length > 0 &&
+                    sldObject.value.namedLayerOrUserLayer[0]
+                        .namedStyleOrUserStyle[0].featureTypeStyle &&
+                    sldObject.value.namedLayerOrUserLayer[0]
+                        .namedStyleOrUserStyle[0].featureTypeStyle.length > 0 &&
+                    sldObject.value.namedLayerOrUserLayer[0]
+                        .namedStyleOrUserStyle[0].featureTypeStyle[0].rule) {
+                return sldObject.value.
+                    namedLayerOrUserLayer[0].
+                    namedStyleOrUserStyle[0].
+                    featureTypeStyle[0].
+                    rule;
+            } else {
+                return null;
+            }
         },
 
         /**
@@ -185,7 +200,7 @@ Ext.define('MoMo.admin.util.Sld', {
         },
 
         styleFromSymbolizers: function(symbolizers) {
-            var sldUtil = MoMo.admin.util.Sld;
+            var sldUtil = SHOGun.admin.util.Sld;
             if (!Ext.isArray(symbolizers)) {
                 symbolizers = [symbolizers];
             }
@@ -200,7 +215,7 @@ Ext.define('MoMo.admin.util.Sld', {
         },
 
         styleFromSymbolizer:  function(symbolizer) {
-            var sldUtil = MoMo.admin.util.Sld;
+            var sldUtil = SHOGun.admin.util.Sld;
             var symbolType = sldUtil.symbolTypeFromSymbolizer(symbolizer);
 
             var style;
@@ -239,7 +254,7 @@ Ext.define('MoMo.admin.util.Sld', {
         },
 
         fillFromObj: function(mark) {
-            var sldUtil = MoMo.admin.util.Sld;
+            var sldUtil = SHOGun.admin.util.Sld;
             var fill;
             if ('fill' in mark) {
                 // find the correct cssParameter
@@ -259,7 +274,7 @@ Ext.define('MoMo.admin.util.Sld', {
         },
 
         strokeFromObj: function(mark) {
-            var sldUtil = MoMo.admin.util.Sld;
+            var sldUtil = SHOGun.admin.util.Sld;
             var stroke;
             if ('stroke' in mark) {
                 var strokeColor = sldUtil.getFirstCssParameterContentByName(
@@ -288,7 +303,7 @@ Ext.define('MoMo.admin.util.Sld', {
             // ol.style.Style with image either ol.style.Circle or
             // ol.style.Icon, or basically also ol.style.RegularShape,
             // for wkts
-            var sldUtil = MoMo.admin.util.Sld;
+            var sldUtil = SHOGun.admin.util.Sld;
             var graphic = symbolizer.value.graphic;
             var size = parseFloat(graphic.size.content, 10);
             var firstGraphicOrMark = graphic.externalGraphicOrMark[0];
@@ -418,7 +433,7 @@ Ext.define('MoMo.admin.util.Sld', {
          * ol.style.Style with stroke being a ol.style.Stroke
          */
         lineStyleFromSymbolizer: function(symbolizer) {
-            var sldUtil = MoMo.admin.util.Sld;
+            var sldUtil = SHOGun.admin.util.Sld;
             var symbValue = symbolizer.value;
             var stroke = sldUtil.strokeFromObj(symbValue);
             return new ol.style.Style({
@@ -431,7 +446,7 @@ Ext.define('MoMo.admin.util.Sld', {
          * fill being an ol.style.Fill
          */
         polygonStyleFromSymbolizer: function(symbolizer) {
-            var sldUtil = MoMo.admin.util.Sld;
+            var sldUtil = SHOGun.admin.util.Sld;
             var symbValue = symbolizer.value;
             var fill = sldUtil.fillFromObj(symbValue);
             var stroke = sldUtil.strokeFromObj(symbValue);
@@ -836,5 +851,5 @@ Ext.define('MoMo.admin.util.Sld', {
 
     }
 }, function() {
-    MoMo.admin.util.Sld.setStaticJsonixReferences();
+    SHOGun.admin.util.Sld.setStaticJsonixReferences();
 });

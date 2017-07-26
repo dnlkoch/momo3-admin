@@ -1,4 +1,4 @@
-Ext.define('MoMo.admin.store.MetadataTopics', {
+Ext.define('SHOGun.admin.store.MetadataTopics', {
 
     extend : 'Ext.data.Store',
 

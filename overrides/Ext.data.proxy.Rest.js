@@ -1,4 +1,4 @@
-Ext.define('MoMo.overrides.Ext.data.proxy.Rest', {
+Ext.define('SHOGun.overrides.Ext.data.proxy.Rest', {
     override: 'Ext.data.proxy.Rest',
     requires: [
         'Ext.data.proxy.Rest'

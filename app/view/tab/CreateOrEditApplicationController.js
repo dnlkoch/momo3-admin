@@ -1,6 +1,6 @@
-Ext.define('MoMo.admin.view.tab.CreateOrEditApplicationController', {
+Ext.define('SHOGun.admin.view.tab.CreateOrEditApplicationController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.momo-create-or-edit-application',
+    alias: 'controller.shogun-create-or-edit-application',
     requires: [
         'BasiGX.util.Object'
     ],
@@ -14,7 +14,7 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditApplicationController', {
         var viewModel = me.getViewModel();
         viewModel.set('entityId', null);
         viewModel.set('application', Ext.create(
-                'MoMo.admin.model.Application'));
+                'SHOGun.admin.model.Application'));
     },
 
     /**
@@ -26,7 +26,7 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditApplicationController', {
         var applicationId = viewModel.get('entityId');
 
         if (applicationId) {
-            MoMo.admin.model.Application.load(applicationId, {
+            SHOGun.admin.model.Application.load(applicationId, {
                 scope: this,
                 success: function(record) {
                     viewModel.set('application', record);
@@ -39,8 +39,8 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditApplicationController', {
                         viewModel.set('startview.values.projection', 'EPSG:' +
                             proj);
                     }
-                    var layerTab = me.getView().down('momo-application-layer');
-                    var layerTreePanel = layerTab.down('momo-layertree');
+                    var layerTab = me.getView().down('shogun-application-layer');
+                    var layerTreePanel = layerTab.down('shogun-layertree');
                     layerTreePanel.getController().loadStoreData();
                     me.loadEntityPermissionStores();
                 },
@@ -50,19 +50,19 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditApplicationController', {
                 }
             });
         } else {
-            var layerTab = me.getView().down('momo-application-layer');
-            var layerTreePanel = layerTab.down('momo-layertree');
+            var layerTab = me.getView().down('shogun-application-layer');
+            var layerTreePanel = layerTab.down('shogun-layertree');
             layerTreePanel.getController().loadStoreData();
             me.loadEntityPermissionStores();
         }
-        var generalTab = me.getView().down('momo-application-general');
+        var generalTab = me.getView().down('shogun-application-general');
         me.getView().setActiveItem(generalTab);
     },
 
     onSaveClick: function() {
         var me = this;
         var viewport = me.getView().up('viewport');
-        var layerTreePanel = me.getView().down('momo-layertree');
+        var layerTreePanel = me.getView().down('shogun-layertree');
         var layerTreePanelCtrl = layerTreePanel.getController();
         var viewModel = me.getView().lookupViewModel();
 
@@ -94,7 +94,7 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditApplicationController', {
 
         Ext.Ajax.request({
             url: BasiGX.util.Url.getWebProjectBaseUrl() +
-                    'momoapps/' + action + '.action',
+                    'projectapps/' + action + '.action',
             method: 'POST',
             defaultHeaders: BasiGX.util.CSRF.getHeader(),
             jsonData: me.collectAppData(),
@@ -108,7 +108,7 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditApplicationController', {
                   get('i18n.saveApplicationResponseTpl');
                 Ext.toast(
                   Ext.String.format(msgTemplate, action, json.name), null, 'b');
-                var appList = viewport.down('momo-applicationlist');
+                var appList = viewport.down('shogun-applicationlist');
                 if (appList) {
                     appList.getStore().load();
                 }
@@ -136,7 +136,7 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditApplicationController', {
         // update permissions if necessary
         if (action === 'update') {
             var permissionGrids = me.getView().query(
-                'momo-entitypermissions');
+                'shogun-entitypermissions');
             Ext.each(permissionGrids, function(grid) {
                 grid.getController().updatePermissions();
             });
@@ -148,10 +148,10 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditApplicationController', {
      */
     setAppData: function(applicationRecord) {
         var me = this;
-        var generalTab = me.getView().down('momo-application-general');
-        var startViewTab = me.getView().down('momo-application-start-view');
-        var layerTab = me.getView().down('momo-application-layer');
-        var layerTreePanel = layerTab.down('momo-layertree');
+        var generalTab = me.getView().down('shogun-application-general');
+        var startViewTab = me.getView().down('shogun-application-start-view');
+        var layerTab = me.getView().down('shogun-application-layer');
+        var layerTreePanel = layerTab.down('shogun-layertree');
         var generalTabViewModel = generalTab.getViewModel();
         var startViewTabViewModel = startViewTab.getViewModel();
         var appData = applicationRecord.getData();
@@ -167,8 +167,8 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditApplicationController', {
         startViewTabViewModel.set('appData', {
             mapProjection: 'EPSG:3857',
             mapCenter: {
-                x: 11843458,
-                y: 6251937
+                x: 1095801,
+                y: 6726458
             },
             mapZoom: 5
         });
@@ -183,8 +183,8 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditApplicationController', {
      */
     loadEntityPermissionStores: function() {
         var permissionTab = this.getView().down(
-            'momo-application-permission');
-        var grids = permissionTab.query('momo-entitypermissions');
+            'shogun-application-permission');
+        var grids = permissionTab.query('shogun-entitypermissions');
         Ext.each(grids, function(grid) {
             grid.getController().loadStore();
         });
@@ -195,8 +195,8 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditApplicationController', {
      */
     collectAppData: function() {
         var me = this;
-        var layerTab = me.getView().down('momo-application-layer');
-        var layerTreePanel = layerTab.down('momo-layertree');
+        var layerTab = me.getView().down('shogun-application-layer');
+        var layerTreePanel = layerTab.down('shogun-layertree');
         var viewModel = me.getViewModel();
         var application = viewModel.get('application');
         var startView = viewModel.get('startview.values');
@@ -252,7 +252,7 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditApplicationController', {
 
                 // set active tab where validation failed
                 var invalidPanel =
-                    field.up('panel[xtype^=momo\-application\-]');
+                    field.up('panel[xtype^=shogun\-application\-]');
                 invalidPanel.up().setActiveTab(invalidPanel);
 
                 return false; // -> break Ext.each

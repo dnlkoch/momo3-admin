@@ -1,6 +1,6 @@
-Ext.define('MoMo.admin.view.grid.EntityPermissionsModel', {
+Ext.define('SHOGun.admin.view.grid.EntityPermissionsModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.momo-entitypermissions',
+    alias: 'viewmodel.shogun-entitypermissions',
 
     data: {
         usersColumnTitle: 'Users',

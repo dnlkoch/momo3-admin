@@ -1,4 +1,4 @@
-Ext.define('MoMo.admin.view.panel.style.SymbolizerModel', {
+Ext.define('SHOGun.admin.view.panel.style.SymbolizerModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.panel.style.symbolizer',
     data: {

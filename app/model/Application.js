@@ -1,9 +1,9 @@
-Ext.define('MoMo.admin.model.Application', {
-    extend: 'MoMo.admin.model.Base',
+Ext.define('SHOGun.admin.model.Application', {
+    extend: 'SHOGun.admin.model.Base',
 
     proxy: {
         type: 'rest',
-        url: BasiGX.util.Url.getWebProjectBaseUrl() + 'rest/momoapps',
+        url: BasiGX.util.Url.getWebProjectBaseUrl() + 'rest/projectapps',
         headers: BasiGX.util.CSRF.getHeader(),
         writer: {
             type: 'json',

@@ -1,9 +1,9 @@
-Ext.define('MoMo.admin.store.EntityPermissions', {
+Ext.define('SHOGun.admin.store.EntityPermissions', {
     extend: 'Ext.data.Store',
 
     alias: 'store.entitypermissions',
 
-    model: 'MoMo.admin.model.EntityPermissions',
+    model: 'SHOGun.admin.model.EntityPermissions',
 
     proxy: {
         type: 'rest',

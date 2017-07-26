@@ -1,4 +1,4 @@
-Ext.define('MoMo.admin.store.Language', {
+Ext.define('SHOGun.admin.store.Language', {
     extend: 'Ext.data.Store',
 
     storeId: 'Language',
@@ -14,9 +14,6 @@ Ext.define('MoMo.admin.store.Language', {
     }, {
         locale: 'en',
         name: 'English'
-    }, {
-        locale: 'mn',
-        name: 'Монгол'
     }]
 
 });

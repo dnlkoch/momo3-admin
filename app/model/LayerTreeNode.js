@@ -1,4 +1,4 @@
-Ext.define('MoMo.admin.model.LayerTreeNode', {
+Ext.define('SHOGun.admin.model.LayerTreeNode', {
     extend: 'Ext.data.TreeModel',
 
     requires: [

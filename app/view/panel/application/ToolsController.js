@@ -1,10 +1,10 @@
-Ext.define('MoMo.admin.view.panel.application.ToolsController', {
+Ext.define('SHOGun.admin.view.panel.application.ToolsController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.momo-application-tools',
+    alias: 'controller.shogun-application-tools',
 
     requires: [
-        'MoMo.admin.store.Tools',
-        'MoMo.admin.view.button.ToolToggle'
+        'SHOGun.admin.store.Tools',
+        'SHOGun.admin.view.button.ToolToggle'
     ],
 
     createToolButtons: function(store, recs) {
@@ -13,10 +13,10 @@ Ext.define('MoMo.admin.view.panel.application.ToolsController', {
         var application = viewModel.get('application');
         var fieldset = view.down('fieldset');
         Ext.each(recs, function(rec) {
-            if(rec.data.properties.ui === 'momo-tools') {
+            if(rec.data.properties.ui === 'shogun-tools') {
                 var btn = {
-                    xtype: "momo-button-tooltoggle",
-                    cls: 'momo-tool-selection',
+                    xtype: "shogun-button-tooltoggle",
+                    cls: 'shogun-tool-selection',
                     glyph: rec.get('glyph'),
                     tooltip: rec.get('name'),
                     toolId: rec.get('id')

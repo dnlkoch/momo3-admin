@@ -1,19 +1,19 @@
-Ext.define('MoMo.admin.view.grid.GroupList',{
+Ext.define('SHOGun.admin.view.grid.GroupList',{
     extend: 'Ext.grid.Panel',
 
-    xtype: 'momo-grouplist',
+    xtype: 'shogun-grouplist',
 
     requires: [
-        'MoMo.admin.view.grid.GroupListController',
-        'MoMo.admin.view.grid.GroupListModel',
+        'SHOGun.admin.view.grid.GroupListController',
+        'SHOGun.admin.view.grid.GroupListModel',
 
-        'MoMo.admin.store.Groups'
+        'SHOGun.admin.store.Groups'
     ],
 
-    controller: 'momo-grouplist',
+    controller: 'shogun-grouplist',
 
     viewModel: {
-        type: 'momo-grouplist'
+        type: 'shogun-grouplist'
     },
 
     store: {
@@ -81,7 +81,7 @@ Ext.define('MoMo.admin.view.grid.GroupList',{
             text: '{i18n.groupGridCreateGroup}'
         },
         scale: 'large',
-        ui: 'momo',
+        ui: 'shogun',
         iconCls: 'fa fa-plus fa-2x',
         handler: 'onCreateClick'
     }, {
@@ -90,7 +90,7 @@ Ext.define('MoMo.admin.view.grid.GroupList',{
             text: '{i18n.groupGridDeleteGroup}'
         },
         scale: 'large',
-        ui: 'momo',
+        ui: 'shogun',
         iconCls: 'fa fa-minus fa-2x',
         handler: 'onDeleteClick'
     }, '->', {

@@ -1,4 +1,4 @@
-Ext.define('MoMo.admin.store.Tools', {
+Ext.define('SHOGun.admin.store.Tools', {
     extend: 'Ext.data.Store',
 
     alias: 'store.tools',

@@ -1,23 +1,23 @@
-Ext.define('MoMo.admin.view.tab.CreateOrEditApplication', {
+Ext.define('SHOGun.admin.view.tab.CreateOrEditApplication', {
     extend: 'Ext.tab.Panel',
 
-    xtype: 'momo-create-or-edit-application',
+    xtype: 'shogun-create-or-edit-application',
 
     requires: [
-        'MoMo.admin.view.tab.CreateOrEditApplicationController',
-        'MoMo.admin.view.tab.CreateOrEditApplicationModel',
-        'MoMo.admin.view.panel.application.General',
-        'MoMo.admin.view.panel.application.Layout',
-        'MoMo.admin.view.panel.application.Layer',
-        'MoMo.admin.view.panel.application.Tools',
-        'MoMo.admin.view.panel.application.StartView',
-        'MoMo.admin.view.panel.application.Permissions'
+        'SHOGun.admin.view.tab.CreateOrEditApplicationController',
+        'SHOGun.admin.view.tab.CreateOrEditApplicationModel',
+        'SHOGun.admin.view.panel.application.General',
+        'SHOGun.admin.view.panel.application.Layout',
+        'SHOGun.admin.view.panel.application.Layer',
+        'SHOGun.admin.view.panel.application.Tools',
+        'SHOGun.admin.view.panel.application.StartView',
+        'SHOGun.admin.view.panel.application.Permissions'
     ],
 
-    controller: 'momo-create-or-edit-application',
+    controller: 'shogun-create-or-edit-application',
 
     viewModel: {
-        type: 'momo-create-or-edit-application'
+        type: 'shogun-create-or-edit-application'
     },
 
     routeId: 'createOrEdit',
@@ -46,20 +46,20 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditApplication', {
     }],
 
     items: [{
-        xtype: 'momo-application-general'
+        xtype: 'shogun-application-general'
     },
 //    {
-//        xtype: 'momo-application-layout',
+//        xtype: 'shogun-application-layout',
 //        disabled: true
 //    },
     {
-        xtype: 'momo-application-tools'
+        xtype: 'shogun-application-tools'
     }, {
-        xtype: 'momo-application-start-view'
+        xtype: 'shogun-application-start-view'
     }, {
-        xtype: 'momo-application-layer'
+        xtype: 'shogun-application-layer'
     }, {
-        xtype: 'momo-application-permission'
+        xtype: 'shogun-application-permission'
     }],
 
     listeners: {

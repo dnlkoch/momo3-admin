@@ -1,5 +1,5 @@
-Ext.define('MoMo.admin.model.Extent', {
-    extend: 'MoMo.admin.model.Base',
+Ext.define('SHOGun.admin.model.Extent', {
+    extend: 'SHOGun.admin.model.Base',
 
     proxy: {
         type: 'rest',

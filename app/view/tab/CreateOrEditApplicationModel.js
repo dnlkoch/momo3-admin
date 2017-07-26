@@ -1,9 +1,9 @@
-Ext.define('MoMo.admin.view.tab.CreateOrEditApplicationModel', {
+Ext.define('SHOGun.admin.view.tab.CreateOrEditApplicationModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.momo-create-or-edit-application',
+    alias: 'viewmodel.shogun-create-or-edit-application',
 
     requires: [
-        'MoMo.admin.model.Application'
+        'SHOGun.admin.model.Application'
     ],
 
     data: {
@@ -63,7 +63,7 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditApplicationModel', {
             saveBtnText: 'Save'
         },
         entityId: null,
-        application: Ext.create('MoMo.admin.model.Application'),
+        application: Ext.create('SHOGun.admin.model.Application'),
         startview: {
             mapExtent: {
                 minX: 0,
@@ -73,8 +73,8 @@ Ext.define('MoMo.admin.view.tab.CreateOrEditApplicationModel', {
             },
             values: {
                 center: {
-                    x: 11843458,
-                    y: 6251937
+                    x: 1095801,
+                    y: 6726458
                 },
                 projection: 'EPSG:3857',
                 zoom: 5

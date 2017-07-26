@@ -1,15 +1,15 @@
-Ext.define('MoMo.admin.view.panel.application.Layer', {
+Ext.define('SHOGun.admin.view.panel.application.Layer', {
     extend: 'Ext.panel.Panel',
 
-    xtype: 'momo-application-layer',
+    xtype: 'shogun-application-layer',
 
     requires: [
-        'MoMo.admin.view.panel.application.LayerController',
+        'SHOGun.admin.view.panel.application.LayerController',
 
-        'MoMo.admin.view.tree.LayerTree'
+        'SHOGun.admin.view.tree.LayerTree'
     ],
 
-    controller: 'momo-application-layer',
+    controller: 'shogun-application-layer',
 
     routeId: 'layer',
 
@@ -31,7 +31,7 @@ Ext.define('MoMo.admin.view.panel.application.Layer', {
             align: 'stretch'
         },
         items: [{
-            xtype: 'momo-layerlist',
+            xtype: 'shogun-layerlist',
             scrollable: 'y',
             flex: 1,
             viewConfig: {
@@ -56,7 +56,7 @@ Ext.define('MoMo.admin.view.panel.application.Layer', {
             xtype: 'displayfield',
             width: 15
         }, {
-            xtype: 'momo-layertree',
+            xtype: 'shogun-layertree',
             scrollable: 'y',
             flex: 1
         }]

@@ -1,4 +1,4 @@
-Ext.define('Momo.admin.data.identifier.Null', {
+Ext.define('SHOGun.admin.data.identifier.Null', {
     extend: 'Ext.data.identifier.Generator',
 
     alias: 'data.identifier.null',

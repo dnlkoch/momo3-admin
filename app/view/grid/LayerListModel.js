@@ -1,6 +1,6 @@
-Ext.define('MoMo.admin.view.grid.LayerListModel', {
+Ext.define('SHOGun.admin.view.grid.LayerListModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.momo-layerlist',
+    alias: 'viewmodel.shogun-layerlist',
 
     data: {
         layerlistTitle: '',

@@ -1,12 +1,12 @@
-Ext.define('MoMo.admin.view.panel.layer.GeneralController', {
+Ext.define('SHOGun.admin.view.panel.layer.GeneralController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.momo-layer-general',
+    alias: 'controller.shogun-layer-general',
 
     requires: [
-        'MoMo.admin.store.Epsg',
+        'SHOGun.admin.store.Epsg',
 
-        'MoMo.admin.view.form.SubmitForm',
-        'MoMo.admin.view.grid.LayerAttributes'
+        'SHOGun.admin.view.form.SubmitForm',
+        'SHOGun.admin.view.grid.LayerAttributes'
     ],
 
     onAttributesButtonClicked: function(btn){
@@ -34,7 +34,7 @@ Ext.define('MoMo.admin.view.panel.layer.GeneralController', {
                 height: 300,
                 width: 400,
                 items: [{
-                    xtype: 'momo-grid-layerattributes',
+                    xtype: 'shogun-grid-layerattributes',
                     name: 'layerAttributeGrid',
                     layer: this.getViewModel().get('layer'),
                     listeners: {
@@ -57,7 +57,7 @@ Ext.define('MoMo.admin.view.panel.layer.GeneralController', {
         var me = this;
         var view = this.getView();
 
-        var submitForm = view.down('momo-form-submitform');
+        var submitForm = view.down('shogun-form-submitform');
         var fieldsClone = [];
         var layerNameField = view.down('textfield[name="layerName"]');
         var viewModel = me.getView().lookupViewModel();
@@ -247,9 +247,9 @@ Ext.define('MoMo.admin.view.panel.layer.GeneralController', {
     onUploadSucess: function(respObj){
         var view = this.getView();
         var viewModel = view.lookupViewModel();
-        var coeLayerPanel = view.up('momo-create-or-edit-layer');
+        var coeLayerPanel = view.up('shogun-create-or-edit-layer');
         var coeLayerController = coeLayerPanel.getController();
-        var metadataPanel = coeLayerPanel.down('momo-layer-metadata');
+        var metadataPanel = coeLayerPanel.down('shogun-layer-metadata');
         var metadataController = metadataPanel.getController();
         var uploadSuccessfulText = viewModel.
           get('i18n.general.uploadSuccessfulText');
@@ -257,9 +257,7 @@ Ext.define('MoMo.admin.view.panel.layer.GeneralController', {
         Ext.toast(uploadSuccessfulText);
 
         // reload the layer stores
-        var layerComponents = Ext.ComponentQuery.query(
-            'momo_tree_managedatalayers, momo_view_layergroupsdataview, '
-                +'momo-layerlist');
+        var layerComponents = Ext.ComponentQuery.query('shogun-layerlist');
 
         Ext.each(layerComponents, function(comp){
             comp.getStore().load();

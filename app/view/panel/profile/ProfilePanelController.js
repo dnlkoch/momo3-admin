@@ -1,6 +1,6 @@
-Ext.define('MoMo.admin.view.panel.ProfilePanelController', {
+Ext.define('SHOGun.admin.view.panel.ProfilePanelController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.momo-profilepanel',
+    alias: 'controller.shogun-profilepanel',
 
     onDeleteClick: function() {
         var me = this;
@@ -18,7 +18,7 @@ Ext.define('MoMo.admin.view.panel.ProfilePanelController', {
                     view.setLoading(true);
                     Ext.Ajax.request({
                         url: BasiGX.util.Url.getWebProjectBaseUrl() +
-                            'momousers/delete.action?id=' + userId,
+                            'projectusers/delete.action?id=' + userId,
                         method: "POST",
                         defaultHeaders: BasiGX.util.CSRF.getHeader(),
                         scope: this,
@@ -97,7 +97,7 @@ Ext.define('MoMo.admin.view.panel.ProfilePanelController', {
         var viewModel = view.getViewModel();
         var userId = viewModel.get('user').id;
         var values = view.getForm().getValues();
-        var grid = view.down('momo-userpermissiongrid');
+        var grid = view.down('shogun-userpermissiongrid');
         var modifiedRecs = grid.getStore().getModifiedRecords();
         values.permissions = {};
         values.userId = userId;
@@ -127,7 +127,7 @@ Ext.define('MoMo.admin.view.panel.ProfilePanelController', {
 
         Ext.Ajax.request({
             url: BasiGX.util.Url.getWebProjectBaseUrl() +
-                'momousers/update.action',
+                'projectusers/update.action',
             method: "POST",
             jsonData: values,
             defaultHeaders: BasiGX.util.CSRF.getHeader(),
@@ -135,7 +135,7 @@ Ext.define('MoMo.admin.view.panel.ProfilePanelController', {
             callback: function(self, success, response) {
                 view.setLoading(false);
                 if (success) {
-                    var permissionGrid = view.down('momo-userpermissiongrid');
+                    var permissionGrid = view.down('shogun-userpermissiongrid');
                     // reload the grid to reset dirty marks and show the
                     // correct (current) group / role state
                     permissionGrid.getController().loadData();
@@ -146,7 +146,7 @@ Ext.define('MoMo.admin.view.panel.ProfilePanelController', {
                             // reconfigures visibility of components
                             // due to roles
                             var mainView = Ext.ComponentQuery.query(
-                                'momo-mainviewport')[0];
+                                'shogun-mainviewport')[0];
                             mainView.getController().getUserBySession();
 
                             Ext.Msg.alert(
@@ -190,10 +190,10 @@ Ext.define('MoMo.admin.view.panel.ProfilePanelController', {
                 method: 'GET'
             },
             pictureSrc: {
-                url: 'momoimage/getThumbnail.action?id='
+                url: 'projectimage/getThumbnail.action?id='
             },
             pictureUpload: {
-                url: 'momoimage/upload.action?'
+                url: 'projectimage/upload.action?'
             },
             graphicDelete: {
                 url: 'rest/images/',

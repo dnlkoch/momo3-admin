@@ -1,19 +1,19 @@
-Ext.define('MoMo.admin.view.grid.ApplicationList',{
+Ext.define('SHOGun.admin.view.grid.ApplicationList',{
     extend: 'Ext.grid.Panel',
 
-    xtype: 'momo-applicationlist',
+    xtype: 'shogun-applicationlist',
 
     requires: [
-        'MoMo.admin.view.grid.ApplicationListController',
-        'MoMo.admin.view.grid.ApplicationListModel',
+        'SHOGun.admin.view.grid.ApplicationListController',
+        'SHOGun.admin.view.grid.ApplicationListModel',
 
-        'MoMo.admin.store.Applications'
+        'SHOGun.admin.store.Applications'
     ],
 
-    controller: 'momo-applicationlist',
+    controller: 'shogun-applicationlist',
 
     viewModel: {
-        type: 'momo-applicationlist'
+        type: 'shogun-applicationlist'
     },
 
     store: {
@@ -86,7 +86,7 @@ Ext.define('MoMo.admin.view.grid.ApplicationList',{
             hidden: '{!allowCreateOrEditWebmaps}'
         },
         scale: 'large',
-        ui: 'momo',
+        ui: 'shogun',
         iconCls: 'fa fa-plus fa-2x',
         handler: 'onCreateClick'
     }, {
@@ -96,7 +96,7 @@ Ext.define('MoMo.admin.view.grid.ApplicationList',{
             hidden: '{!allowCreateOrEditWebmaps}'
         },
         scale: 'large',
-        ui: 'momo',
+        ui: 'shogun',
         iconCls: 'fa fa-copy fa-2x',
         handler: 'onCopyClick'
     }, {
@@ -105,7 +105,7 @@ Ext.define('MoMo.admin.view.grid.ApplicationList',{
             text: '{i18n.applicationsDeleteApp}'
         },
         scale: 'large',
-        ui: 'momo',
+        ui: 'shogun',
         iconCls: 'fa fa-minus fa-2x',
         handler: 'onDeleteClick'
     }, '->', {

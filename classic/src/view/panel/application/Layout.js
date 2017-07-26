@@ -1,19 +1,19 @@
-Ext.define('MoMo.admin.view.panel.application.Layout', {
+Ext.define('SHOGun.admin.view.panel.application.Layout', {
     extend: 'Ext.form.Panel',
 
-    xtype: 'momo-application-layout',
+    xtype: 'shogun-application-layout',
 
     requires: [
-        'MoMo.admin.view.panel.application.LayoutController',
-//        'MoMo.admin.view.panel.application.LayoutModel',
+        'SHOGun.admin.view.panel.application.LayoutController',
+//        'SHOGun.admin.view.panel.application.LayoutModel',
         'Ext.form.field.ComboBox',
         'Ext.tree.Panel'
     ],
 
-    controller: 'momo-application-layout',
+    controller: 'shogun-application-layout',
 
 //    viewModel: {
-//        type: 'momo-application-layout'
+//        type: 'shogun-application-layout'
 //    },
 
     bind: {

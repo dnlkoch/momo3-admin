@@ -1,12 +1,12 @@
-Ext.define('MoMo.admin.view.grid.EntityPermissions',{
+Ext.define('SHOGun.admin.view.grid.EntityPermissions',{
     extend: 'Ext.grid.Panel',
 
-    xtype: 'momo-entitypermissions',
+    xtype: 'shogun-entitypermissions',
 
     requires: [
-        'MoMo.admin.view.grid.EntityPermissionsController',
-        'MoMo.admin.view.grid.EntityPermissionsModel',
-        'MoMo.admin.store.EntityPermissions'
+        'SHOGun.admin.view.grid.EntityPermissionsController',
+        'SHOGun.admin.view.grid.EntityPermissionsModel',
+        'SHOGun.admin.store.EntityPermissions'
     ],
 
     /**
@@ -14,12 +14,12 @@ Ext.define('MoMo.admin.view.grid.EntityPermissions',{
      */
     config: {
         /**
-         * the entity we want to handle  -> 'MomoLayer' or 'MomoApplication'
+         * the entity we want to handle  -> 'ProjectLayer' or 'ProjectApplication'
          */
         entity: null,
 
         /**
-         * the targetEntity we want to handle -> 'MomoUser' or 'MomoUserGroup'
+         * the targetEntity we want to handle -> 'ProjectUser' or 'ProjectUserGroup'
          */
         targetEntity: null,
 
@@ -29,7 +29,7 @@ Ext.define('MoMo.admin.view.grid.EntityPermissions',{
         id: null
     },
 
-    controller: 'momo-entitypermissions',
+    controller: 'shogun-entitypermissions',
 
     store: {
         type: 'entitypermissions',
@@ -46,7 +46,7 @@ Ext.define('MoMo.admin.view.grid.EntityPermissions',{
     },
 
     viewModel: {
-        type: 'momo-entitypermissions'
+        type: 'shogun-entitypermissions'
     },
 
     columns: [{
@@ -58,7 +58,7 @@ Ext.define('MoMo.admin.view.grid.EntityPermissions',{
                 var columns = grid.getColumns();
                 Ext.each(columns, function(column) {
                     if (column.dataIndex === 'displayTitle') {
-                        if (target === 'MomoUser') {
+                        if (target === 'ProjectUser') {
                             column.setText(
                                 grid.getViewModel().get('i18n').usersColumnTitle
                             );

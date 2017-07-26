@@ -1,9 +1,9 @@
-Ext.define('MoMo.admin.view.panel.layer.MetadataController', {
+Ext.define('SHOGun.admin.view.panel.layer.MetadataController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.momo-layer-metadata',
+    alias: 'controller.shogun-layer-metadata',
 
     requires: [
-        'MoMo.shared.MetadataUtil'
+        'SHOGun.shared.MetadataUtil'
     ],
 
     /**
@@ -41,7 +41,7 @@ Ext.define('MoMo.admin.view.panel.layer.MetadataController', {
 //            view.setLoading(true);
             Ext.Ajax.request({
                 url: BasiGX.util.Url.getWebProjectBaseUrl() +
-                        'momolayers/getLayerExtent.action?layerId=' +
+                        'projectlayers/getLayerExtent.action?layerId=' +
                         viewModel.get('layer.id'),
                 success: function(response) {
                     var obj = Ext.decode(response.responseText);
@@ -74,11 +74,11 @@ Ext.define('MoMo.admin.view.panel.layer.MetadataController', {
      */
     createMetadataEntry: function(layerObj, metadata){
         var me = this;
-        var xml = MoMo.shared.MetadataUtil.getInsertBlankXml();
+        var xml = SHOGun.shared.MetadataUtil.getInsertBlankXml();
         var layer;
         var viewModel = me.getView().lookupViewModel();
 
-        MoMo.admin.model.Layer.load(layerObj.data.id, {
+        SHOGun.admin.model.Layer.load(layerObj.data.id, {
             scope: this,
             success: function(record) {
                 layer = record;
@@ -97,7 +97,7 @@ Ext.define('MoMo.admin.view.panel.layer.MetadataController', {
                         var uuid;
                         if (response && response.responseText) {
                             responseObj = Ext.decode(response.responseText);
-                            uuid = MoMo.shared.MetadataUtil.uuidFromXmlString(
+                            uuid = SHOGun.shared.MetadataUtil.uuidFromXmlString(
                                     responseObj.data);
                             layer.set('metadataIdentifier', uuid);
 
@@ -140,7 +140,7 @@ Ext.define('MoMo.admin.view.panel.layer.MetadataController', {
     updateMetadataEntry: function(layer, metadata, viewModel){
         var uuid = layer.get('metadataIdentifier');
         if(uuid && metadata){
-            var xml = MoMo.shared.MetadataUtil.getUpdateXml(uuid, metadata);
+            var xml = SHOGun.shared.MetadataUtil.getUpdateXml(uuid, metadata);
 
             Ext.Ajax.request({
                 url: BasiGX.util.Url.getWebProjectBaseUrl() +

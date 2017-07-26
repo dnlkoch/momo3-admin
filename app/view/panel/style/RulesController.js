@@ -1,9 +1,9 @@
-Ext.define('MoMo.admin.view.panel.style.RulesController', {
+Ext.define('SHOGun.admin.view.panel.style.RulesController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.panel.style.rules',
 
     requires: [
-        'MoMo.admin.view.panel.style.Rule'
+        'SHOGun.admin.view.panel.style.Rule'
     ],
 
     addRule: function(){
@@ -14,7 +14,7 @@ Ext.define('MoMo.admin.view.panel.style.RulesController', {
         rule.name = rule.name + '-' + rnd;
         view.rules.push(rule);
         view.insert(1, {
-            xtype: 'momo-panel-style-rule',
+            xtype: 'shogun-panel-style-rule',
             margin: 10,
             rule: rule
         });
@@ -26,7 +26,7 @@ Ext.define('MoMo.admin.view.panel.style.RulesController', {
 
     updateRules: function(){
         var view = this.getView();
-        var rulePanels = view.query('momo-panel-style-rule');
+        var rulePanels = view.query('shogun-panel-style-rule');
         view.rules = Ext.Array.pluck(rulePanels, 'rule');
     }
 

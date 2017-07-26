@@ -1,4 +1,4 @@
-describe('Basic requirements of momo', function() {
+describe('Basic requirements of SHOGun', function() {
     describe('Libraries are loaded & available in testsuite', function() {
         describe('ExtJS', function() {
             it('is defined', function() {

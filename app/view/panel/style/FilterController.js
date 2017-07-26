@@ -1,9 +1,9 @@
-Ext.define('MoMo.admin.view.panel.style.FilterController', {
+Ext.define('SHOGun.admin.view.panel.style.FilterController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.panel.style.filter',
 
     requires: [
-        'MoMo.admin.util.Sld'
+        'SHOGun.admin.util.Sld'
     ],
 
     onBoxReady: function() {
@@ -23,7 +23,7 @@ Ext.define('MoMo.admin.view.panel.style.FilterController', {
                         values[f.name] = f.getValue();
                     }
                 });
-                view.filter = MoMo.admin.util.Sld
+                view.filter = SHOGun.admin.util.Sld
                         .filterValuesToSldFilter(values);
                 view.fireEvent('filterchanged', view.filter);
             });
@@ -31,7 +31,7 @@ Ext.define('MoMo.admin.view.panel.style.FilterController', {
     },
 
     attributeComboBoxReady: function(combo){
-        var styler = combo.up('momo-panel-style-styler');
+        var styler = combo.up('shogun-panel-style-styler');
         var store = combo.getStore();
         var proxy = store.getProxy();
         var layerUrl = styler.getLayerUrl();
@@ -54,7 +54,7 @@ Ext.define('MoMo.admin.view.panel.style.FilterController', {
     setFilterComponents: function() {
         var me = this;
         var filter = me.getView().getFilter();
-        var sldUtil = MoMo.admin.util.Sld;
+        var sldUtil = SHOGun.admin.util.Sld;
 
         if(filter){
             if (sldUtil.isComparisonFilter(filter)) {
@@ -97,7 +97,7 @@ Ext.define('MoMo.admin.view.panel.style.FilterController', {
         switch(newValue) {
             case "PropertyIsEqualTo":
                 if(filter){
-                    literalValues = MoMo.admin.util.Sld
+                    literalValues = SHOGun.admin.util.Sld
                             .getLiteralValuesFromFilter(filter);
                     if(literalValues){
                         literalTextField.setValue(literalValues[0]);
@@ -109,7 +109,7 @@ Ext.define('MoMo.admin.view.panel.style.FilterController', {
                 break;
             case "PropertyIsNotEqualTo":
                 if(filter){
-                    literalValues = MoMo.admin.util.Sld
+                    literalValues = SHOGun.admin.util.Sld
                             .getLiteralValuesFromFilter(filter);
                     if(literalValues){
                         literalTextField.setValue(literalValues[0]);
@@ -121,7 +121,7 @@ Ext.define('MoMo.admin.view.panel.style.FilterController', {
                 break;
             case "PropertyIsLike":
                 if(filter){
-                    literalValues = MoMo.admin.util.Sld
+                    literalValues = SHOGun.admin.util.Sld
                             .getLiteralValuesFromFilter(filter);
                     if(literalValues){
                         literalTextField.setValue(literalValues[0]);
@@ -138,7 +138,7 @@ Ext.define('MoMo.admin.view.panel.style.FilterController', {
                 break;
             case "PropertyIsBetween":
                 if(filter){
-                    literalValues = MoMo.admin.util.Sld
+                    literalValues = SHOGun.admin.util.Sld
                             .getLiteralValuesFromFilter(filter);
                     if(literalValues && Ext.isNumeric(literalValues[0]) &&
                             Ext.isNumeric(literalValues[1])){
@@ -156,7 +156,7 @@ Ext.define('MoMo.admin.view.panel.style.FilterController', {
             case "PropertyIsGreaterThan":
             case "PropertyIsGreaterThanOrEqualTo":
                 if(filter){
-                    literalValues = MoMo.admin.util.Sld
+                    literalValues = SHOGun.admin.util.Sld
                             .getLiteralValuesFromFilter(filter);
 
                     if(literalValues && Ext.isNumeric(literalValues[0])){
@@ -173,7 +173,7 @@ Ext.define('MoMo.admin.view.panel.style.FilterController', {
         }
 
         if(filter){
-            var propertyName = MoMo.admin.util.Sld
+            var propertyName = SHOGun.admin.util.Sld
                     .getPropertyNameFromFilter(filter);
             attributeCombo.setValue(propertyName);
         }

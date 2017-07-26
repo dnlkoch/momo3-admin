@@ -1,10 +1,10 @@
-Ext.define('MoMo.admin.model.User', {
+Ext.define('SHOGun.admin.model.User', {
 
-    extend: 'MoMo.admin.model.Base',
+    extend: 'SHOGun.admin.model.Base',
 
     proxy: {
         type: 'rest',
-        url: BasiGX.util.Url.getWebProjectBaseUrl() + 'rest/momousers',
+        url: BasiGX.util.Url.getWebProjectBaseUrl() + 'rest/projectusers',
         headers: BasiGX.util.CSRF.getHeader()
     },
 

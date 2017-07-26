@@ -1,13 +1,13 @@
-Ext.define('MoMo.admin.view.panel.style.Filter', {
+Ext.define('SHOGun.admin.view.panel.style.Filter', {
     extend: 'Ext.panel.Panel',
-    xtype: 'momo-panel-style-filter',
+    xtype: 'shogun-panel-style-filter',
 
     requires: [
-        'MoMo.admin.view.panel.style.FilterController',
-        'MoMo.admin.view.panel.style.FilterModel',
+        'SHOGun.admin.view.panel.style.FilterController',
+        'SHOGun.admin.view.panel.style.FilterModel',
 
-        'MoMo.admin.store.LayerAttributes',
-        'MoMo.admin.store.SldOperators'
+        'SHOGun.admin.store.LayerAttributes',
+        'SHOGun.admin.store.SldOperators'
     ],
 
     controller: 'panel.style.filter',
@@ -96,7 +96,7 @@ Ext.define('MoMo.admin.view.panel.style.Filter', {
                 '</tpl>',
                 {
                     propertyFitsOperator: function(dataTypes){
-                        var attrCombo = this.field.up('momo-panel-style-filter')
+                        var attrCombo = this.field.up('shogun-panel-style-filter')
                                 .down('combobox[name="attributeCombo"]');
                         if(attrCombo){
                             var attr = attrCombo.getSelection().get('type');

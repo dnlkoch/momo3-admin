@@ -1,4 +1,4 @@
-Ext.define('MoMo.admin.store.LayerAttributes', {
+Ext.define('SHOGun.admin.store.LayerAttributes', {
 
     extend: 'Ext.data.Store',
 

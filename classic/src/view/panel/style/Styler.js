@@ -1,10 +1,10 @@
-Ext.define('MoMo.admin.view.panel.style.Styler', {
+Ext.define('SHOGun.admin.view.panel.style.Styler', {
     extend: 'Ext.panel.Panel',
-    xtype: 'momo-panel-style-styler',
+    xtype: 'shogun-panel-style-styler',
 
     requires: [
-        'MoMo.admin.view.panel.style.StylerController',
-        'MoMo.admin.view.panel.style.StylerModel'
+        'SHOGun.admin.view.panel.style.StylerController',
+        'SHOGun.admin.view.panel.style.StylerModel'
     ],
 
     controller: 'panel.style.styler',

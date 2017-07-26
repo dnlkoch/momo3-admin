@@ -1,6 +1,6 @@
-Ext.define('MoMo.admin.view.grid.LayerTreeController', {
+Ext.define('SHOGun.admin.view.grid.LayerTreeController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.momo-layertree',
+    alias: 'controller.shogun-layertree',
 
     requires: [
         'Ext.menu.Menu',
@@ -8,8 +8,8 @@ Ext.define('MoMo.admin.view.grid.LayerTreeController', {
     ],
 
     statics: {
-        LAYER_TREE_LEAF_CLASS: 'de.terrestris.momo.model.tree.LayerTreeLeaf',
-        LAYER_TREE_FOLDER_CLASS: 'de.terrestris.momo.model.tree.LayerTreeFolder'
+        LAYER_TREE_LEAF_CLASS: 'de.terrestris.appshogun.model.tree.LayerTreeLeaf',
+        LAYER_TREE_FOLDER_CLASS: 'de.terrestris.appshogun.model.tree.LayerTreeFolder'
     },
 
     /**
@@ -39,7 +39,7 @@ Ext.define('MoMo.admin.view.grid.LayerTreeController', {
             store.setTrackRemoved(false);
             // TODO: Set ID via view.setTreeConfigId() if we're in application
             // edit mode otherwise we'll never reach this block
-            var rootNode = Ext.create('MoMo.admin.model.LayerTreeNode',
+            var rootNode = Ext.create('SHOGun.admin.model.LayerTreeNode',
                     layerTree);
 
             store.setRoot(rootNode);
@@ -326,7 +326,7 @@ Ext.define('MoMo.admin.view.grid.LayerTreeController', {
 
         Ext.Ajax.request({
             method: 'GET',
-            url: MoMo.admin.model.Layer.getProxy().getUrl() + '/filter',
+            url: SHOGun.admin.model.Layer.getProxy().getUrl() + '/filter',
             params: {
                 name: defaultLayerName
             },
@@ -433,7 +433,7 @@ Ext.define('MoMo.admin.view.grid.LayerTreeController', {
         var store = view.getStore();
         var layerTreeNode;
 
-        layerTreeNode = Ext.create('MoMo.admin.model.LayerTreeNode',
+        layerTreeNode = Ext.create('SHOGun.admin.model.LayerTreeNode',
                 defaultLayerTreeNodeConf);
 
         store.setRoot(layerTreeNode);
@@ -448,8 +448,8 @@ Ext.define('MoMo.admin.view.grid.LayerTreeController', {
         var dropRecords = [];
 
         Ext.each(data.records, function(record) {
-            if (!(record instanceof MoMo.admin.model.LayerTreeNode)) {
-                var treeRecord = Ext.create('MoMo.admin.model.LayerTreeNode', {
+            if (!(record instanceof SHOGun.admin.model.LayerTreeNode)) {
+                var treeRecord = Ext.create('SHOGun.admin.model.LayerTreeNode', {
                     '@class': clazz.LAYER_TREE_LEAF_CLASS,
                     text: record.get('name'),
                     index: 0,

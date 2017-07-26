@@ -1,21 +1,21 @@
-Ext.define('MoMo.admin.view.panel.layer.Metadata',{
+Ext.define('SHOGun.admin.view.panel.layer.Metadata',{
     extend: 'Ext.panel.Panel',
 
-    xtype: 'momo-layer-metadata',
+    xtype: 'shogun-layer-metadata',
 
     requires: [
         'Ext.form.FieldContainer',
-        'MoMo.admin.store.Epsg',
-        'MoMo.admin.store.MetadataTopics',
+        'SHOGun.admin.store.Epsg',
+        'SHOGun.admin.store.MetadataTopics',
 
-        'MoMo.admin.view.panel.layer.MetadataController',
+        'SHOGun.admin.view.panel.layer.MetadataController',
         'Ext.form.field.Date',
         'Ext.form.field.ComboBox',
         'Ext.form.field.TextArea',
-        'MoMo.admin.util.TextfieldValidator'
+        'SHOGun.admin.util.TextfieldValidator'
     ],
 
-    controller: 'momo-layer-metadata',
+    controller: 'shogun-layer-metadata',
 
     routeId: 'metadata',
 
@@ -149,7 +149,7 @@ Ext.define('MoMo.admin.view.panel.layer.Metadata',{
                     name: 'metadata-organisation-name',
                     allowBlank: false,
                     msgTarget: 'under',
-                    validator: MoMo.admin.util.TextfieldValidator.
+                    validator: SHOGun.admin.util.TextfieldValidator.
                         checkForWhiteSpaces,
                     bind: {
                         fieldLabel: '{i18n.metadata.name}',
@@ -178,7 +178,7 @@ Ext.define('MoMo.admin.view.panel.layer.Metadata',{
                         name: 'metadata-organisation-address-deliveryPoint',
                         allowBlank: false,
                         msgTarget: 'under',
-                        validator: MoMo.admin.util.TextfieldValidator.
+                        validator: SHOGun.admin.util.TextfieldValidator.
                             checkForWhiteSpaces,
                         bind: {
                             fieldLabel: '{i18n.metadata.deliveryPoint}',
@@ -192,7 +192,7 @@ Ext.define('MoMo.admin.view.panel.layer.Metadata',{
                         minLength: 3,
                         maxLength: 10,
                         msgTarget: 'under',
-                        validator: MoMo.admin.util.TextfieldValidator.
+                        validator: SHOGun.admin.util.TextfieldValidator.
                             checkForWhiteSpaces,
                         bind: {
                             fieldLabel: '{i18n.metadata.postalCode}',
@@ -203,7 +203,7 @@ Ext.define('MoMo.admin.view.panel.layer.Metadata',{
                         name: 'metadata-organisation-address-city',
                         allowBlank: false,
                         msgTarget: 'under',
-                        validator: MoMo.admin.util.TextfieldValidator.
+                        validator: SHOGun.admin.util.TextfieldValidator.
                             checkForWhiteSpaces,
                         bind: {
                             fieldLabel: '{i18n.metadata.city}',
@@ -214,7 +214,7 @@ Ext.define('MoMo.admin.view.panel.layer.Metadata',{
                         name: 'metadata-organisation-address-country',
                         allowBlank: false,
                         msgTarget: 'under',
-                        validator: MoMo.admin.util.TextfieldValidator.
+                        validator: SHOGun.admin.util.TextfieldValidator.
                             checkForWhiteSpaces,
                         bind: {
                             fieldLabel: '{i18n.metadata.country}',

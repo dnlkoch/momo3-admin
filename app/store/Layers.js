@@ -1,9 +1,9 @@
-Ext.define('MoMo.admin.store.Layers', {
+Ext.define('SHOGun.admin.store.Layers', {
 
     extend: 'Ext.data.Store',
 
     alias: 'store.layers',
 
-    model: 'MoMo.admin.model.Layer'
+    model: 'SHOGun.admin.model.Layer'
 
 });

@@ -1,11 +1,11 @@
-describe('MoMo.admin.view.grid.ApplicationList', function() {
+describe('SHOGun.admin.view.grid.ApplicationList', function() {
     var applicationList;
     var controller;
     var viewModel;
     var store;
 
     beforeEach(function() {
-        applicationList = Ext.create('MoMo.admin.view.grid.ApplicationList');
+        applicationList = Ext.create('SHOGun.admin.view.grid.ApplicationList');
         controller = applicationList.getController();
         viewModel = applicationList.getViewModel();
         store = applicationList.getStore();
@@ -17,16 +17,16 @@ describe('MoMo.admin.view.grid.ApplicationList', function() {
 
     describe('Basics', function() {
         it('is defined', function() {
-            expect(MoMo.admin.view.grid.ApplicationList).to.not.be(undefined);
+            expect(SHOGun.admin.view.grid.ApplicationList).to.not.be(undefined);
         });
         it('has a ViewController', function() {
-            expect(controller).to.be.an(MoMo.admin.view.grid.ApplicationListController);
+            expect(controller).to.be.an(SHOGun.admin.view.grid.ApplicationListController);
         });
         it('has a ViewModel', function() {
-            expect(viewModel).to.be.an(MoMo.admin.view.grid.ApplicationListModel);
+            expect(viewModel).to.be.an(SHOGun.admin.view.grid.ApplicationListModel);
         });
         it('has a store of type "applications"', function() {
-            expect(store).to.be.an(MoMo.admin.store.Applications);
+            expect(store).to.be.an(SHOGun.admin.store.Applications);
         });
     });
 

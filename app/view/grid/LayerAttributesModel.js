@@ -1,4 +1,4 @@
-Ext.define('MoMo.admin.view.grid.LayerAttributesModel', {
+Ext.define('SHOGun.admin.view.grid.LayerAttributesModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.grid-layerattributes',
 

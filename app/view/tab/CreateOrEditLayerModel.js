@@ -1,10 +1,10 @@
-Ext.define('MoMo.admin.view.tab.CreateOrEditLayerModel', {
+Ext.define('SHOGun.admin.view.tab.CreateOrEditLayerModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.momo-create-or-edit-layer',
+    alias: 'viewmodel.shogun-create-or-edit-layer',
 
     data: {
 
-        name: 'MoMo.admin',
+        name: 'SHOGun.admin',
 
         entityId: null,
 

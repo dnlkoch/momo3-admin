@@ -1,14 +1,14 @@
-Ext.define('MoMo.admin.view.panel.application.General', {
+Ext.define('SHOGun.admin.view.panel.application.General', {
     extend: 'Ext.panel.Panel',
 
-    xtype: 'momo-application-general',
+    xtype: 'shogun-application-general',
 
     requires: [
-        'MoMo.admin.view.panel.application.GeneralController',
+        'SHOGun.admin.view.panel.application.GeneralController',
         'Ext.form.field.ComboBox'
     ],
 
-    controller: 'momo-application-general',
+    controller: 'shogun-application-general',
 
     routeId: 'general',
 

@@ -1,4 +1,4 @@
-Ext.define('MoMo.admin.store.SldOperators', {
+Ext.define('SHOGun.admin.store.SldOperators', {
 
     extend: 'Ext.data.Store',
 

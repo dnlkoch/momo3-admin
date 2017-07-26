@@ -17,13 +17,13 @@
  * TranslationController
  *
  * This controller implements the "on the fly" translation logic of the
- * momo application.
+ * shogun application.
  * The most functions are based on `BasiGX.view.combo.Language` class and were
  * adapted to work with buttons instead of combo box.
  *
- * @class MoMo.client.view.button.TranslationController
+ * @class SHOGun.client.view.button.TranslationController
  */
-Ext.define('MoMo.admin.view.button.TranslationController', {
+Ext.define('SHOGun.admin.view.button.TranslationController', {
     extend: 'Ext.app.ViewController',
 
     requires: [
@@ -124,7 +124,7 @@ Ext.define('MoMo.admin.view.button.TranslationController', {
 
                     // adjust locale of login/logout button
                     var loginBtn =
-                        Ext.ComponentQuery.query('momo-login-logout-button')[0];
+                        Ext.ComponentQuery.query('shogun-login-logout-button')[0];
                     if (loginBtn){
                         loginBtn.getController().setCurrentUserAccountName();
                     }
@@ -160,7 +160,7 @@ Ext.define('MoMo.admin.view.button.TranslationController', {
                                 text: vm.get('i18n').usersMenuTitle,
                                 view: 'grid.UserList',
                                 leaf: true,
-                                iconCls: 'x-fa fa-user',
+                                iconCls: 'x-fa fa-users',
                                 routeId: 'users'
                             }, {
                                 text: vm.get('i18n').profileMenuTitle,
@@ -176,32 +176,32 @@ Ext.define('MoMo.admin.view.button.TranslationController', {
 
                     // adjust the tooltips in the grids by refreshing the view
                     var layerList = Ext.ComponentQuery.query(
-                        'momo-layerlist')[0];
+                        'shogun-layerlist')[0];
                     if (layerList) {
                         layerList.getView().refresh();
                     }
                     var appList = Ext.ComponentQuery.query(
-                        'momo-applicationlist')[0];
+                        'shogun-applicationlist')[0];
                     if (appList) {
                         appList.getView().refresh();
                     }
                     var groupList = Ext.ComponentQuery.query(
-                        'momo-grouplist')[0];
+                        'shogun-grouplist')[0];
                     if (groupList) {
                         groupList.getView().refresh();
                     }
                     var usersList = Ext.ComponentQuery.query(
-                        'momo-userlist')[0];
+                        'shogun-userlist')[0];
                     if (usersList) {
                         usersList.getView().refresh();
                     }
                     var userGroupRoleGrid = Ext.ComponentQuery.query(
-                        'momo-grouppermissiongrid')[0];
+                        'shogun-grouppermissiongrid')[0];
                     if (userGroupRoleGrid) {
                         userGroupRoleGrid.getView().refresh();
                     }
                     var permissionGrids = Ext.ComponentQuery.query(
-                        'momo-entitypermissions');
+                        'shogun-entitypermissions');
                     Ext.each(permissionGrids, function(grid) {
                         grid.getView().refresh();
                     });

@@ -5,7 +5,7 @@
  *
  * Write and read XML
  */
-Ext.define('MoMo.admin.util.Metadata', {
+Ext.define('SHOGun.admin.util.Metadata', {
 
     statics: {
         /**

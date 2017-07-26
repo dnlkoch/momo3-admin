@@ -1,21 +1,21 @@
-Ext.define('MoMo.admin.view.panel.ProfilePanel',{
+Ext.define('SHOGun.admin.view.panel.ProfilePanel',{
     extend: 'Ext.form.Panel',
 
-    xtype: 'momo-profilepanel',
+    xtype: 'shogun-profilepanel',
 
     bodyPadding: 5,
 
     requires: [
-        'MoMo.admin.view.panel.ProfilePanelController',
-        'MoMo.admin.view.panel.ProfilePanelModel',
-        'MoMo.admin.view.grid.UserPermissionGrid',
+        'SHOGun.admin.view.panel.ProfilePanelController',
+        'SHOGun.admin.view.panel.ProfilePanelModel',
+        'SHOGun.admin.view.grid.UserPermissionGrid',
         'BasiGX.view.panel.GraphicPool'
     ],
 
-    controller: 'momo-profilepanel',
+    controller: 'shogun-profilepanel',
 
     viewModel: {
-        type: 'momo-profilepanel'
+        type: 'shogun-profilepanel'
     },
 
     bind: {
@@ -30,7 +30,7 @@ Ext.define('MoMo.admin.view.panel.ProfilePanel',{
             text: '{i18n.profilepanelDeleteUser}'
         },
         scale: 'large',
-        ui: 'momo',
+        ui: 'shogun',
         iconCls: 'fa fa-minus fa-2x',
         handler: 'onDeleteClick'
     }],
@@ -98,9 +98,6 @@ Ext.define('MoMo.admin.view.panel.ProfilePanel',{
                     }, {
                         name: 'English',
                         value: 'en'
-                    }, {
-                        name: 'Mongolian',
-                        value: 'mn'
                     }]
                 }),
                 displayField: 'name',
@@ -151,7 +148,7 @@ Ext.define('MoMo.admin.view.panel.ProfilePanel',{
                     value: '{i18n.profilepanelPermissionGridDescription}'
                 }
             }, {
-                xtype: 'momo-userpermissiongrid'
+                xtype: 'shogun-userpermissiongrid'
             }]
         }]
     }],
@@ -164,7 +161,7 @@ Ext.define('MoMo.admin.view.panel.ProfilePanel',{
             text: '{i18n.profilepanelSaveUser}'
         },
         scale: 'large',
-        ui: 'momo',
+        ui: 'shogun',
         iconCls: 'fa fa-save fa-2x',
         handler: 'onSaveClick'
     }]

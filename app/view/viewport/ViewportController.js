@@ -1,10 +1,10 @@
-Ext.define('MoMo.admin.view.viewport.ViewportController', {
+Ext.define('SHOGun.admin.view.viewport.ViewportController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.momo-mainviewport',
+    alias: 'controller.shogun-mainviewport',
 
     requires: [
-        'MoMo.admin.view.tab.CreateOrEditApplication',
-        'MoMo.admin.view.tab.CreateOrEditLayer'
+        'SHOGun.admin.view.tab.CreateOrEditApplication',
+        'SHOGun.admin.view.tab.CreateOrEditLayer'
     ],
 
     listen : {
@@ -22,8 +22,8 @@ Ext.define('MoMo.admin.view.viewport.ViewportController', {
     },
 
     componentMap: {
-        'applications': 'MoMo.admin.view.tab.CreateOrEditApplication',
-        'layers': 'MoMo.admin.view.tab.CreateOrEditLayer'
+        'applications': 'SHOGun.admin.view.tab.CreateOrEditApplication',
+        'layers': 'SHOGun.admin.view.tab.CreateOrEditLayer'
     },
 
     /**
@@ -43,7 +43,7 @@ Ext.define('MoMo.admin.view.viewport.ViewportController', {
                 if (response && response.responseText) {
                     var responseObj = Ext.decode(response.responseText);
                     var user = Ext.create(
-                        'MoMo.admin.model.User',
+                        'SHOGun.admin.model.User',
                         responseObj.data
                     );
                     viewModel.set('user', user);
@@ -100,26 +100,13 @@ Ext.define('MoMo.admin.view.viewport.ViewportController', {
             user.get('lastName') &&
             user.get('language') &&
             user.get('telephone');
-
-        if (!hasValidUserDetails) {
-            // only profile tab shall be active and usable
-            this.redirectTo('profile');
-            navigationStore.clearFilter();
-            navigationStore.filter([
-                {
-                    property : 'routeId',
-                    value    : 'profile'
-                }
-            ]);
-            return;
-        }
-
-        // determine the roles of the suer
         var groupRoles = user.get('groupRoles');
         var hasAdminRole = false;
         var hasSubAdminRole = false;
         var hasEditorRole = false;
         var hasUserRole = false;
+
+        // determine the roles of the user
         Ext.each(groupRoles, function(groupRole) {
             if (groupRole.indexOf('ROLE_USER') > -1) {
                 hasUserRole = true;
@@ -131,6 +118,19 @@ Ext.define('MoMo.admin.view.viewport.ViewportController', {
                 hasAdminRole = true;
             }
         });
+
+        if (!hasAdminRole && !hasValidUserDetails) {
+            // only profile tab shall be active and usable
+            this.redirectTo('profile');
+            navigationStore.clearFilter();
+            navigationStore.filter([
+                {
+                    property: 'routeId',
+                    value: 'profile'
+                }
+            ]);
+            return;
+        }
 
         // filter the menu based on the roles
         if (hasAdminRole) {
@@ -212,7 +212,7 @@ Ext.define('MoMo.admin.view.viewport.ViewportController', {
         var viewModel = this.getViewModel();
         var user = viewModel.get('user');
         var lang = user.get('language') || 'en';
-        var selector = 'momo-translation-' + lang + '-button';
+        var selector = 'shogun-translation-' + lang + '-button';
         var button = Ext.ComponentQuery.query(selector)[0];
         // avoid toast
         button.getController().firstApplicationLoad = true;
@@ -300,9 +300,9 @@ Ext.define('MoMo.admin.view.viewport.ViewportController', {
         lastView = mainLayout.getActiveItem();
 
         if (!existingItem) {
-            var viewToCreate = 'MoMo.admin.view.' +
+            var viewToCreate = 'SHOGun.admin.view.' +
             // TODO: Uncaught Error: [Ext.create] Unrecognized class
-            // name / alias: MoMo.admin.view.pages.Error404Window
+            // name / alias: SHOGun.admin.view.pages.Error404Window
                     (view || 'pages.Error404Window');
             newView = Ext.create(viewToCreate, {
                 hideMode: 'offsets',
@@ -343,7 +343,7 @@ Ext.define('MoMo.admin.view.viewport.ViewportController', {
         }
     },
 
-    onToggleNavigationSize: function (btn, pressedState) {
+    onToggleNavigationSize: function(btn, pressedState) {
         var me = this,
             navContainer = me.getReferences().navigationContainer,
             navList = navContainer.down('treelist'),
@@ -351,7 +351,7 @@ Ext.define('MoMo.admin.view.viewport.ViewportController', {
             collapsed = pressedState,
             width = collapsed ? 64 : 250;
 
-        navList.setMicro(collapsed);
+//        navList.setMicro(collapsed);
 
         Ext.each(navContainerItems, function(item) {
             item.setWidth(width);
@@ -362,6 +362,12 @@ Ext.define('MoMo.admin.view.viewport.ViewportController', {
         } else {
             btn.setIconCls('x-fa fa-angle-left');
         }
+    },
+
+    onToggleNavigationRender: function(btn) {
+        var me = this;
+
+        me.onToggleNavigationSize(btn, btn.pressed);
     },
 
     onMainViewRender: function() {

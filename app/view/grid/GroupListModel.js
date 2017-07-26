@@ -1,6 +1,6 @@
-Ext.define('MoMo.admin.view.grid.GroupListModel', {
+Ext.define('SHOGun.admin.view.grid.GroupListModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.momo-grouplist',
+    alias: 'viewmodel.shogun-grouplist',
 
     data: {
         groupGridTitle: 'All users',

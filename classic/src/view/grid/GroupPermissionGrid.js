@@ -1,16 +1,16 @@
-Ext.define('MoMo.admin.view.grid.GroupPermissionGrid',{
+Ext.define('SHOGun.admin.view.grid.GroupPermissionGrid',{
     extend: 'Ext.grid.Panel',
 
-    xtype: 'momo-grouppermissiongrid',
+    xtype: 'shogun-grouppermissiongrid',
 
     requires: [
-        'MoMo.admin.view.grid.GroupPermissionGridModel',
-        'MoMo.admin.view.grid.GroupPermissionGridController'
+        'SHOGun.admin.view.grid.GroupPermissionGridModel',
+        'SHOGun.admin.view.grid.GroupPermissionGridController'
     ],
 
-    controller: 'momo-grouppermissiongrid',
+    controller: 'shogun-grouppermissiongrid',
     viewModel: {
-        type: 'momo-grouppermissiongrid'
+        type: 'shogun-grouppermissiongrid'
     },
 
     store:  Ext.create('Ext.data.Store', {

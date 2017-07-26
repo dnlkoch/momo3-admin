@@ -1,12 +1,12 @@
-Ext.define('MoMo.admin.view.panel.style.SymbolizerController', {
+Ext.define('SHOGun.admin.view.panel.style.SymbolizerController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.panel.style.symbolizer',
     requires: [
         'GeoExt.component.FeatureRenderer',
 
-        'MoMo.admin.util.Sld',
+        'SHOGun.admin.util.Sld',
 
-        'MoMo.admin.util.Sld',
+        'SHOGun.admin.util.Sld',
         'BasiGX.util.Color',
         'BasiGX.util.SLD',
         'BasiGX.view.container.SLDStyler'
@@ -16,12 +16,12 @@ Ext.define('MoMo.admin.view.panel.style.SymbolizerController', {
         var me = this;
         var view = me.getView();
         var viewModel = me.getViewModel();
-        var sldUtil = MoMo.admin.util.Sld;
+        var sldUtil = SHOGun.admin.util.Sld;
         var jsonixSymb = view.getSymbolizer();
         var symbolType = sldUtil.symbolTypeFromSymbolizer(jsonixSymb);
-        var sld = view.up('momo-panel-style-rules').sld;
-        var styler = view.up('momo-panel-style-styler');
-        var rule = view.up('momo-panel-style-rule').rule;
+        var sld = view.up('shogun-panel-style-rules').sld;
+        var styler = view.up('shogun-panel-style-styler');
+        var rule = view.up('shogun-panel-style-rule').rule;
         var layerName = styler.layerName;
         var availableRules;
 
@@ -101,9 +101,9 @@ Ext.define('MoMo.admin.view.panel.style.SymbolizerController', {
         var view = this.getView();
         var viewModel = this.getViewModel();
         var symbolType = viewModel.get('symbolType');
-        var sld = view.up('momo-panel-style-rules').sld;
-        var styler = view.up('momo-panel-style-styler');
-        var rule = view.up('momo-panel-style-rule').rule;
+        var sld = view.up('shogun-panel-style-rules').sld;
+        var styler = view.up('shogun-panel-style-styler');
+        var rule = view.up('shogun-panel-style-rule').rule;
         var layerName = styler.layerName;
 
         var win = Ext.ComponentQuery.query('[name=symbolizer-edit-window]')[0];
@@ -116,10 +116,10 @@ Ext.define('MoMo.admin.view.panel.style.SymbolizerController', {
                     method: 'GET'
                 },
                 pictureSrc: {
-                    url: 'momoimage/getThumbnail.action?id='
+                    url: 'projectimage/getThumbnail.action?id='
                 },
                 pictureUpload: {
-                    url: 'momoimage/upload.action?'
+                    url: 'projectimage/upload.action?'
                 },
                 graphicDelete: {
                     url: 'rest/images/',
@@ -169,16 +169,16 @@ Ext.define('MoMo.admin.view.panel.style.SymbolizerController', {
         var rules = BasiGX.util.SLD.rulesFromSldObject(sldStyler.getSldObj());
 
         // update parent components (who screwed this up btw?)
-        view.up('momo-panel-style-rules').setSld(sld);
-        view.up('momo-panel-style-rules').sldObj = sldStyler.getSldObj();
-        view.up('momo-panel-style-rules').rules = rules;
+        view.up('shogun-panel-style-rules').setSld(sld);
+        view.up('shogun-panel-style-rules').sldObj = sldStyler.getSldObj();
+        view.up('shogun-panel-style-rules').rules = rules;
 
         // preserve the filter
-        var oldRule = view.up('momo-panel-style-rule').getRule();
+        var oldRule = view.up('shogun-panel-style-rule').getRule();
         rule.filter = oldRule.filter;
-        view.up('momo-panel-style-rule').setRule(rule);
+        view.up('shogun-panel-style-rule').setRule(rule);
 
-        var styler = view.up('momo-panel-style-styler');
+        var styler = view.up('shogun-panel-style-styler');
         var layerName = styler.layerName;
 
         Ext.Ajax.request({

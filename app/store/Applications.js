@@ -1,8 +1,8 @@
-Ext.define('MoMo.admin.store.Applications', {
+Ext.define('SHOGun.admin.store.Applications', {
     extend: 'Ext.data.Store',
 
     alias: 'store.applications',
 
-    model: 'MoMo.admin.model.Application'
+    model: 'SHOGun.admin.model.Application'
 
 });

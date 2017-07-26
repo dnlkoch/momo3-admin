@@ -1,4 +1,4 @@
-Ext.define('MoMo.admin.view.panel.style.StylerModel', {
+Ext.define('SHOGun.admin.view.panel.style.StylerModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.panel.style.styler',
     data: {

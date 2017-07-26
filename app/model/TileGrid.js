@@ -1,8 +1,8 @@
-Ext.define('MoMo.admin.model.TileGrid', {
-    extend: 'MoMo.admin.model.Base',
+Ext.define('SHOGun.admin.model.TileGrid', {
+    extend: 'SHOGun.admin.model.Base',
 
     requires: [
-        'MoMo.admin.model.Extent'
+        'SHOGun.admin.model.Extent'
     ],
 
     proxy: {

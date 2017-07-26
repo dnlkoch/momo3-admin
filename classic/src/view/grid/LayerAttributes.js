@@ -1,11 +1,11 @@
-Ext.define('MoMo.admin.view.grid.LayerAttributes',{
+Ext.define('SHOGun.admin.view.grid.LayerAttributes',{
     extend: 'Ext.grid.Panel',
 
-    xtype: 'momo-grid-layerattributes',
+    xtype: 'shogun-grid-layerattributes',
 
     requires: [
-        'MoMo.admin.view.grid.LayerAttributesModel',
-        'MoMo.admin.store.LayerAttributes'
+        'SHOGun.admin.view.grid.LayerAttributesModel',
+        'SHOGun.admin.store.LayerAttributes'
     ],
 
     viewModel: 'grid-layerattributes',

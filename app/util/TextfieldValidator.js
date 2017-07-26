@@ -6,7 +6,7 @@
  * Case 2: two or more white spaces in a string
  *
  */
-Ext.define('MoMo.admin.util.TextfieldValidator', {
+Ext.define('SHOGun.admin.util.TextfieldValidator', {
 
     statics: {
         checkForWhiteSpaces : function(val) {

@@ -1,4 +1,4 @@
-Ext.define('MoMo.overrides.Ext.data.TreeStore', {
+Ext.define('SHOGun.overrides.Ext.data.TreeStore', {
     override: 'Ext.data.TreeStore',
     requires: [
         'Ext.data.TreeStore'

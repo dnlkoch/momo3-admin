@@ -1,22 +1,22 @@
-Ext.define('MoMo.admin.view.tree.LayerTree',{
+Ext.define('SHOGun.admin.view.tree.LayerTree',{
     extend: 'Ext.tree.Panel',
 
-    xtype: 'momo-layertree',
+    xtype: 'shogun-layertree',
 
     requires: [
-        'MoMo.admin.view.grid.LayerTreeController',
-        'MoMo.admin.view.grid.LayerTreeModel',
+        'SHOGun.admin.view.grid.LayerTreeController',
+        'SHOGun.admin.view.grid.LayerTreeModel',
 
-        'MoMo.admin.store.LayerTree'
+        'SHOGun.admin.store.LayerTree'
     ],
 
-    controller: 'momo-layertree',
+    controller: 'shogun-layertree',
 
     viewModel: {
-        type: 'momo-layertree'
+        type: 'shogun-layertree'
     },
 
-    store: 'momo-layertree',
+    store: 'shogun-layertree',
 
     bind: {
         title: '{title}'
@@ -43,7 +43,7 @@ Ext.define('MoMo.admin.view.tree.LayerTree',{
         defaultTreeFolderName: 'Hintergrundlayer',
 
         /**
-         * The name (this is the name of the de.terrestris.momo.model.MomoLayer
+         * The name (this is the name of the de.terrestris.appshogun.model.ProjectLayer
          * entity) of the default layer if we're in create mode.
          */
         defaultTreeLayerName: 'OSM-WMS GRAY'

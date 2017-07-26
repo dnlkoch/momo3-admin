@@ -1,5 +1,5 @@
 /*eslint max-len: 0*/
-Ext.define('MoMo.admin.store.Epsg', {
+Ext.define('SHOGun.admin.store.Epsg', {
     extend: 'Ext.data.ArrayStore',
 
     requires: [
@@ -27,7 +27,7 @@ Ext.define('MoMo.admin.store.Epsg', {
 
     proxy: {
         type: 'ajax',
-        url : '/momo/admin/resources/data/codes.txt',
+        url : '/shogun2-webapp/admin/resources/data/codes.txt',
         reader: {
             type: 'array'
         }

@@ -1,4 +1,4 @@
-Ext.define('MoMo.admin.store.AvailableModules', {
+Ext.define('SHOGun.admin.store.AvailableModules', {
     extend: 'Ext.data.TreeStore',
 
     root: {

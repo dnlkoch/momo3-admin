@@ -1,19 +1,19 @@
-Ext.define('MoMo.admin.view.panel.layer.General',{
+Ext.define('SHOGun.admin.view.panel.layer.General',{
     extend: 'Ext.panel.Panel',
 
-    xtype: 'momo-layer-general',
+    xtype: 'shogun-layer-general',
 
     requires: [
         'Ext.form.FieldContainer',
 
-        'MoMo.admin.view.panel.layer.GeneralController',
+        'SHOGun.admin.view.panel.layer.GeneralController',
 
-        'MoMo.admin.view.form.SubmitForm',
-        'MoMo.admin.store.Epsg',
-        'MoMo.admin.util.TextfieldValidator'
+        'SHOGun.admin.view.form.SubmitForm',
+        'SHOGun.admin.store.Epsg',
+        'SHOGun.admin.util.TextfieldValidator'
     ],
 
-    controller: 'momo-layer-general',
+    controller: 'shogun-layer-general',
 
     routeId: 'general',
 
@@ -43,13 +43,13 @@ Ext.define('MoMo.admin.view.panel.layer.General',{
                     emptyText: '{i18n.general.layerNameEmptyText}'
                 },
                 msgTarget: 'under',
-                validator: MoMo.admin.util.TextfieldValidator.
+                validator: SHOGun.admin.util.TextfieldValidator.
                     checkForWhiteSpaces,
                 allowBlank: false,
                 name: 'layerName',
                 width: '100%'
             }, {
-                xtype: 'momo-form-submitform',
+                xtype: 'shogun-form-submitform',
                 url: BasiGX.util.Url.getWebProjectBaseUrl() +
                         'import/create-layer.action',
                 // set to hidden:true initially to avoid ugly blinking onRender

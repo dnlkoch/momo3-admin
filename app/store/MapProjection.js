@@ -1,4 +1,4 @@
-Ext.define('MoMo.admin.store.MapProjection', {
+Ext.define('SHOGun.admin.store.MapProjection', {
     extend: 'Ext.data.Store',
 
     storeId: 'MapProjection',

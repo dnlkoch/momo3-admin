@@ -1,9 +1,9 @@
-Ext.define('MoMo.admin.view.grid.UserListController', {
+Ext.define('SHOGun.admin.view.grid.UserListController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.momo-userlist',
+    alias: 'controller.shogun-userlist',
 
     requires: [
-        // 'MoMo.admin.view.tab.CreateOrEditApplication'
+        // 'SHOGun.admin.view.tab.CreateOrEditApplication'
     ],
 
     loadStore: function(){
@@ -51,7 +51,7 @@ Ext.define('MoMo.admin.view.grid.UserListController', {
                         var userId = user.get('id');
                         Ext.Ajax.request({
                             url: BasiGX.util.Url.getWebProjectBaseUrl() +
-                                'momousers/delete.action?id=' + userId,
+                                'projectusers/delete.action?id=' + userId,
                             method: "POST",
                             defaultHeaders: BasiGX.util.CSRF.getHeader(),
                             scope: this,

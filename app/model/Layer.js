@@ -1,9 +1,9 @@
-Ext.define('MoMo.admin.model.Layer', {
-    extend: 'MoMo.admin.model.Base',
+Ext.define('SHOGun.admin.model.Layer', {
+    extend: 'SHOGun.admin.model.Base',
 
     requires: [
-        'MoMo.admin.model.LayerSource',
-        'MoMo.admin.model.LayerAppearance'
+        'SHOGun.admin.model.LayerSource',
+        'SHOGun.admin.model.LayerAppearance'
     ],
 
     proxy: {

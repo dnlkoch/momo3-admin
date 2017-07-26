@@ -1,16 +1,16 @@
-Ext.define('MoMo.admin.view.grid.UserPermissionGrid',{
+Ext.define('SHOGun.admin.view.grid.UserPermissionGrid',{
     extend: 'Ext.grid.Panel',
 
-    xtype: 'momo-userpermissiongrid',
+    xtype: 'shogun-userpermissiongrid',
 
     requires: [
-        'MoMo.admin.view.grid.UserPermissionGridModel',
-        'MoMo.admin.view.grid.UserPermissionGridController'
+        'SHOGun.admin.view.grid.UserPermissionGridModel',
+        'SHOGun.admin.view.grid.UserPermissionGridController'
     ],
 
-    controller: 'momo-userpermissiongrid',
+    controller: 'shogun-userpermissiongrid',
     viewModel: {
-        type: 'momo-userpermissiongrid'
+        type: 'shogun-userpermissiongrid'
     },
 
     store:  Ext.create('Ext.data.Store', {

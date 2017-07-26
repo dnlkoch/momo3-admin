@@ -1,27 +1,26 @@
-Ext.define('MoMo.admin.view.viewport.Viewport', {
+Ext.define('SHOGun.admin.view.viewport.Viewport', {
     extend: 'Ext.container.Viewport',
-    xtype: 'momo-mainviewport',
+    xtype: 'shogun-mainviewport',
 
     requires: [
         'Ext.list.Tree',
 
-        'MoMo.admin.view.viewport.ViewportController',
-        'MoMo.admin.view.viewport.ViewportModel',
-        'MoMo.admin.view.container.MainContainer',
-        'MoMo.admin.view.grid.ApplicationList',
-        'MoMo.admin.view.grid.LayerList',
-        'MoMo.admin.view.grid.UserList',
-        'MoMo.admin.view.panel.ProfilePanel',
-        'MoMo.admin.view.panel.GroupPanel',
-        'MoMo.admin.view.button.translation.ToMongolian',
-        'MoMo.admin.view.button.translation.ToGerman',
-        'MoMo.admin.view.button.translation.ToEnglish'
+        'SHOGun.admin.view.viewport.ViewportController',
+        'SHOGun.admin.view.viewport.ViewportModel',
+        'SHOGun.admin.view.container.MainContainer',
+        'SHOGun.admin.view.grid.ApplicationList',
+        'SHOGun.admin.view.grid.LayerList',
+        'SHOGun.admin.view.grid.UserList',
+        'SHOGun.admin.view.panel.ProfilePanel',
+        'SHOGun.admin.view.panel.GroupPanel',
+        'SHOGun.admin.view.button.translation.ToGerman',
+        'SHOGun.admin.view.button.translation.ToEnglish'
     ],
 
-    controller: 'momo-mainviewport',
+    controller: 'shogun-mainviewport',
 
     viewModel: {
-        type: 'momo-mainviewport'
+        type: 'shogun-mainviewport'
     },
 
     cls: 'sencha-dash-viewport',
@@ -47,17 +46,15 @@ Ext.define('MoMo.admin.view.viewport.Viewport', {
             xtype: 'image',
             reference: 'headerLogo',
             cls: 'viewport-header-logo',
-            src: 'resources/images/iwrm_momo_logo.png',
+            src: 'resources/images/shogun-logo-full-150px.png',
             height: 43
         }, {
             xtype: 'tbspacer',
             flex: 1
         }, {
-            xtype: 'momo-translation-de-button'
+            xtype: 'shogun-translation-de-button'
         }, {
-            xtype: 'momo-translation-en-button'
-        }, {
-            xtype: 'momo-translation-mn-button'
+            xtype: 'shogun-translation-en-button'
         }, {
             xtype: 'button',
             cls: 'delete-focus-bg',
@@ -70,7 +67,7 @@ Ext.define('MoMo.admin.view.viewport.Viewport', {
             xtype: 'tbtext',
             cls: 'header-toolbar-text',
             bind: {
-                text: '{user.firstName}'
+                text: '{user.fullName}'
             }
         }, {
             xtype: 'image',
@@ -86,7 +83,7 @@ Ext.define('MoMo.admin.view.viewport.Viewport', {
             }
         }]
     }, {
-        xtype: 'momo-maincontainerwrap',
+        xtype: 'shogun-maincontainerwrap',
         reference: 'mainContainerWrap',
         flex: 1,
         items: [{
@@ -110,7 +107,11 @@ Ext.define('MoMo.admin.view.viewport.Viewport', {
                 xtype: 'button',
                 iconCls: 'x-fa fa-angle-left',
                 enableToggle: true,
-                toggleHandler: 'onToggleNavigationSize'
+                pressed: true,
+                listeners: {
+                    toggle: 'onToggleNavigationSize',
+                    beforerender: 'onToggleNavigationRender'
+                }
             }]
         }, {
             xtype: 'container',
